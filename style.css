@@ -11,8 +11,8 @@ body {
 }
 
 .home-body {
-    /* --- CORREÇÃO APLICADA AQUI --- */
-    background: url('https://images.wallpaperscraft.com/image/single/pokemon_gengar_art_111322_1920x1080.jpg') no-repeat center center fixed;
+    /* CAMINHO CORRIGIDO */
+    background: url('assets/bg-horizon-fade@2x.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -45,26 +45,8 @@ a:hover {
     align-items: center;
 }
 
-.logo img {
-    height: 30px;
-    margin-right: 10px;
-}
-
-.logo h1 {
-    font-size: 24px;
-    margin: 0;
-    font-weight: normal;
-}
-
-.logo .showdown-text {
-    font-weight: bold;
-}
-
-.logo .beta-text {
-    font-size: 12px;
-    vertical-align: super;
-    margin-left: 5px;
-    color: #ffcc00;
+.logo-img {
+    height: 50px;
 }
 
 .main-nav .nav-btn, .play-nav .nav-btn, .user-actions .user-btn {
