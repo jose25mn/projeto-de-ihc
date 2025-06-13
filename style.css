@@ -11,7 +11,8 @@ body {
 }
 
 .home-body {
-    background: url('https://i.imgur.com/8Q5gG4U.jpg') no-repeat center center fixed;
+    /* --- CORREÇÃO APLICADA AQUI --- */
+    background: url('https://images.wallpaperscraft.com/image/single/pokemon_gengar_art_111322_1920x1080.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
