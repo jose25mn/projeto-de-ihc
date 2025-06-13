@@ -1,0 +1,257 @@
+/* Estilos Gerais e Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.home-body {
+    background: url('https://i.imgur.com/8Q5gG4U.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.play-body {
+    background: url('https://i.imgur.com/w1iOFJ9.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+a {
+    color: #a0c0e8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid #444;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: normal;
+}
+
+.logo .showdown-text {
+    font-weight: bold;
+}
+
+.logo .beta-text {
+    font-size: 12px;
+    vertical-align: super;
+    margin-left: 5px;
+    color: #ffcc00;
+}
+
+.main-nav .nav-btn, .play-nav .nav-btn, .user-actions .user-btn {
+    background-color: #3b3b3b;
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin: 0 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.main-nav .nav-btn:hover, .play-nav .nav-btn:hover, .user-actions .user-btn:hover {
+    background-color: #555;
+    text-decoration: none;
+}
+
+.main-nav .active {
+    background-color: #5c8ce6;
+}
+
+.main-nav .play-btn-header {
+    background-color: #4CAF50;
+}
+
+/* Página Home - Conteúdo Principal */
+.home-main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.center-content h2 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.center-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.video-container img {
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    cursor: pointer;
+    max-width: 90%;
+    height: auto;
+}
+
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.action-buttons .play-online-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.action-buttons .install-btn {
+    background-color: #5c8ce6;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.action-buttons span {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Footer */
+.main-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+}
+
+.footer-right a {
+    margin-left: 15px;
+}
+.footer-right i {
+    margin-right: 5px;
+}
+
+/* Página Play - Layout */
+.play-container {
+    display: flex;
+    flex-grow: 1;
+    padding: 20px;
+    gap: 20px;
+}
+
+.left-sidebar, .main-content-play, .right-sidebar {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.left-sidebar { flex: 1; }
+.main-content-play { flex: 2; }
+.right-sidebar { flex: 1; }
+
+/* Página Play - Barra Lateral Esquerda */
+.battle-options, .team-builder-btn, .tournaments-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.battle-format { margin: 15px 0; }
+.team-icons span {
+    display: inline-block;
+    width: 25px; height: 25px;
+    background: #555;
+    border: 1px solid #777;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    margin-right: 5px;
+}
+
+.battle-btn {
+    background-color: #e53935;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+.find-opponent-text { text-align: center; font-size: 12px; margin-top: 5px; }
+
+.team-builder-btn, .tournaments-btn {
+    width: calc(100% - 30px); /* 100% - padding */
+    background-color: #3b74a5;
+    color: white;
+    border: none;
+    text-align: left;
+    padding: 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.team-builder-btn span, .tournaments-btn span { font-size: 0.8em; color: #ccc; }
+
+/* Página Play - Conteúdo Principal */
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.news-section h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+}
+
+/* Página Play - Barra Lateral Direita (Servidores) */
+.right-sidebar h3 { margin-top: 0; }
+.right-sidebar ul { list-style: none; padding: 0; margin: 0; }
+.right-sidebar li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+    display: flex;
+    justify-content: space-between;
+}
+.right-sidebar li:last-child { border-bottom: none; }
+.right-sidebar li span { color: #aaa; }
