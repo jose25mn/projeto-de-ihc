@@ -11,7 +11,6 @@ body {
 }
 
 .home-body {
-    /* CAMINHO CORRIGIDO */
     background: url('assets/bg-horizon-fade@2x.jpg') no-repeat center center fixed;
     background-size: cover;
 }
