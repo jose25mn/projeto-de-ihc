@@ -36,6 +36,10 @@
             bottom: 0;
             z-index: -1;
         }
+        /* Sombra para o texto principal para melhor contraste */
+        .text-shadow-lg {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
     </style>
 </head>
 <body class="text-white relative">
@@ -71,26 +75,34 @@
 
         <!-- MAIN CONTENT -->
         <main class="flex-grow flex flex-col items-center justify-center text-center px-4">
-            <h1 class="text-4xl md:text-6xl font-black tracking-tighter mb-4 text-shadow-lg">Play Pokemon battles online!</h1>
-            <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">Play with randomly generated teams OR build your own!</p>
-            
-            <!-- Video Thumbnail (mantido como URL, pois estava assim no seu original) -->
-            <div class="mb-8 shadow-2xl rounded-lg overflow-hidden border-4 border-gray-600/50 transform hover:scale-105 transition-transform duration-300">
-                <a href="https://youtu.be/daw9GoZWWSI" target="_blank">
-                    <img src="https://i.imgur.com/uGGRTCh.png" alt="Pokemon Showdown Trailer Thumbnail" class="w-full max-w-2xl" onerror="this.onerror=null;this.src='https://placehold.co/672x378/1a202c/ffffff?text=Video+Trailer';">
-                </a>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="#" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-lg text-xl transition-colors shadow-lg flex items-center">
-                    Play Online
-                </a>
-                <span class="text-gray-400 font-bold text-lg">OR</span>
-                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-lg text-xl transition-colors shadow-lg flex items-center">
-                    Install for Windows
-                    <i class="fab fa-windows ml-3 text-2xl"></i>
-                </a>
+            <!-- Mini Fundo Preto -->
+            <div class="bg-black bg-opacity-40 p-6 md:p-8 rounded-xl shadow-2xl border border-gray-800 max-w-4xl w-full">
+                <h1 class="text-4xl md:text-5xl font-black tracking-tighter mb-3 text-shadow-lg">Play Pokemon battles online!</h1>
+                <p class="text-lg text-gray-200 mb-6 max-w-2xl mx-auto">Play with randomly generated teams OR build your own!</p>
+                
+                <!-- YouTube Video Embed (Menor) -->
+                <div class="w-full max-w-2xl aspect-video mx-auto mb-6 shadow-2xl rounded-lg overflow-hidden border-2 border-gray-700/50">
+                    <iframe 
+                        class="w-full h-full" 
+                        src="https://www.youtube.com/embed/daw9GoZWWSI" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+    
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors shadow-lg flex items-center">
+                        Play Online
+                    </a>
+                    <span class="text-gray-300 font-bold text-md">OR</span>
+                    <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors shadow-lg flex items-center">
+                        Install for Windows
+                        <i class="fab fa-windows ml-3 text-xl"></i>
+                    </a>
+                </div>
             </div>
         </main>
 
