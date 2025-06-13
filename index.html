@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>After-Home | Pokémon Showdown</title>
+
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6434380,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome CDN for Icons -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    
+
     <style>
         /* Estilo customizado para aplicar a fonte e o fundo */
         body {
@@ -47,15 +55,12 @@
     <div class="body-overlay"></div>
 
     <div class="flex flex-col min-h-screen">
-        <!-- HEADER -->
         <header class="bg-black bg-opacity-30 border-b border-gray-700">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
-                    <!-- Logo com caminho local -->
                     <div class="flex-shrink-0">
                         <img class="h-12" src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x50/1a202c/ffffff?text=Logo';">
                     </div>
-                    <!-- Navigation -->
                     <nav class="hidden md:flex items-center space-x-2">
                         <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium">Home</a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Pokédex</a>
@@ -63,7 +68,6 @@
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Ladder</a>
                         <a href="#" class="bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-2 rounded-md text-sm transition-colors">Play</a>
                     </nav>
-                     <!-- Mobile Menu Button (optional) -->
                     <div class="md:hidden">
                         <button class="text-gray-300 hover:text-white focus:outline-none">
                             <i class="fas fa-bars text-2xl"></i>
@@ -73,26 +77,21 @@
             </div>
         </header>
 
-        <!-- MAIN CONTENT -->
         <main class="flex-grow flex flex-col items-center justify-center text-center px-4">
-            <!-- Mini Fundo Preto -->
             <div class="bg-black bg-opacity-40 p-6 md:p-8 rounded-xl shadow-2xl border border-gray-800 max-w-4xl w-full">
                 <h1 class="text-4xl md:text-5xl font-black tracking-tighter mb-3 text-shadow-lg">Play Pokemon battles online!</h1>
                 <p class="text-lg text-gray-200 mb-6 max-w-2xl mx-auto">Play with randomly generated teams OR build your own!</p>
                 
-                <!-- YouTube Video Embed (Menor) -->
                 <div class="w-full max-w-2xl aspect-video mx-auto mb-6 shadow-2xl rounded-lg overflow-hidden border-2 border-gray-700/50">
                     <iframe 
                         class="w-full h-full" 
-                        src="https://www.youtube.com/embed/daw9GoZWWSI" 
-                        title="YouTube video player" 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"  title="YouTube video player" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen>
                     </iframe>
                 </div>
-    
-                <!-- Action Buttons -->
+                
                 <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
                     <a href="#" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors shadow-lg flex items-center">
                         Play Online
@@ -106,7 +105,6 @@
             </div>
         </main>
 
-        <!-- FOOTER -->
         <footer class="bg-black bg-opacity-30 mt-12 py-4">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
                 <div class="flex space-x-4 mb-4 md:mb-0">
