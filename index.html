@@ -1,58 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>After-Home | Pokémon Showdown</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilo customizado para aplicar a fonte e o fundo */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Caminho da imagem de fundo local do seu código original */
+            background-image: url('assets/bg-horizon-fade@2x.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        /* Efeito de sobreposição escuro para melhor legibilidade do texto */
+        .body-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    </style>
 </head>
-<body class="home-body" style="
-    background: url('assets/bg-horizon-fade@2x.jpg');
-    background-size: cover;
-}">
-    <header class="main-header">
-        <div class="logo">
-            <img src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" class="logo-img">
-        </div>
-        <nav class="main-nav">
-            <a href="#" class="nav-btn active">Home</a>
-            <a href="#" class="nav-btn">Pokedex</a>
-            <a href="#" class="nav-btn">Replays</a>
-            <a href="#" class="nav-btn">Ladder</a>
-            <a href="play.html" class="nav-btn play-btn-header">Play</a>
-        </nav>
-    </header>
+<body class="text-white relative">
 
-    <main class="home-main">
-        <div class="center-content">
-            <h2>Play Pokemon battles online!</h2>
-            <p>Play with randomly generated teams OR build your own!</p>
-            <div class="video-container">
+    <div class="body-overlay"></div>
+
+    <div class="flex flex-col min-h-screen">
+        <!-- HEADER -->
+        <header class="bg-black bg-opacity-30 border-b border-gray-700">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logo com caminho local -->
+                    <div class="flex-shrink-0">
+                        <img class="h-12" src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x50/1a202c/ffffff?text=Logo';">
+                    </div>
+                    <!-- Navigation -->
+                    <nav class="hidden md:flex items-center space-x-2">
+                        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Pokédex</a>
+                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Replays</a>
+                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Ladder</a>
+                        <a href="#" class="bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-2 rounded-md text-sm transition-colors">Play</a>
+                    </nav>
+                     <!-- Mobile Menu Button (optional) -->
+                    <div class="md:hidden">
+                        <button class="text-gray-300 hover:text-white focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-grow flex flex-col items-center justify-center text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tighter mb-4 text-shadow-lg">Play Pokemon battles online!</h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">Play with randomly generated teams OR build your own!</p>
+            
+            <!-- Video Thumbnail (mantido como URL, pois estava assim no seu original) -->
+            <div class="mb-8 shadow-2xl rounded-lg overflow-hidden border-4 border-gray-600/50 transform hover:scale-105 transition-transform duration-300">
                 <a href="https://youtu.be/daw9GoZWWSI" target="_blank">
-                    <img src="https://i.imgur.com/uGGRTCh.png" alt="Pokemon Showdown Trailer Thumbnail">
+                    <img src="https://i.imgur.com/uGGRTCh.png" alt="Pokemon Showdown Trailer Thumbnail" class="w-full max-w-2xl" onerror="this.onerror=null;this.src='https://placehold.co/672x378/1a202c/ffffff?text=Video+Trailer';">
                 </a>
             </div>
-            <div class="action-buttons">
-                <a href="play.html" class="play-online-btn">Play Online</a>
-                <span>OR</span>
-                <a href="#" class="install-btn">
-                    Install for Windows
-                    <i class="fab fa-windows"></i>
-                </a>
-            </div>
-        </div>
-    </main>
 
-    <footer class="main-footer">
-        <div class="footer-left">
-            <a href="#">Rules</a> | <a href="#">Credits</a> | <a href="#">Privacy Policy</a>
-        </div>
-        <div class="footer-right">
-            <a href="#"><i class="fas fa-calculator"></i> Damage calculator</a>
-            <a href="#"><i class="fas fa-chart-bar"></i> Usage stats</a>
-            <a href="#"><i class="fab fa-github"></i> GitHub repository</a>
-        </div>
-    </footer>
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-lg text-xl transition-colors shadow-lg flex items-center">
+                    Play Online
+                </a>
+                <span class="text-gray-400 font-bold text-lg">OR</span>
+                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-lg text-xl transition-colors shadow-lg flex items-center">
+                    Install for Windows
+                    <i class="fab fa-windows ml-3 text-2xl"></i>
+                </a>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-black bg-opacity-30 mt-12 py-4">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <div class="flex space-x-4 mb-4 md:mb-0">
+                    <a href="#" class="hover:text-white transition-colors">Rules</a>
+                    <a href="#" class="hover:text-white transition-colors">Credits</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors flex items-center"><i class="fas fa-calculator mr-2"></i> Damage calculator</a>
+                    <a href="#" class="hover:text-white transition-colors flex items-center"><i class="fas fa-chart-bar mr-2"></i> Usage stats</a>
+                    <a href="#" class="hover:text-white transition-colors flex items-center"><i class="fab fa-github mr-2"></i> GitHub repository</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
 </body>
 </html>
