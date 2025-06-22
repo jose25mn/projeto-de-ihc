@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>After-Play | Pokémon Showdown</title>
 
+    <!-- Hotjar Tracking Code -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6434380,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -83,12 +95,12 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
                     <div class="flex-shrink-0 flex items-center">
-                         <img class="h-12" src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x50/1a202c/ffffff?text=Logo';">
+                         <a href="index.html"><img class="h-12" src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x50/1a202c/ffffff?text=Logo';"></a>
                     </div>
 
                     <nav class="hidden md:flex items-center space-x-1 bg-gray-800/60 p-1 rounded-lg">
-                        <a href="#" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md text-sm font-bold"><i class="fas fa-home"></i></a>
-                        <a href="#" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Smogon</a>
+                        <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-bold"><i class="fas fa-home"></i></a>
+                        <a href="https://www.smogon.com/" target="_blank" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Smogon</a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Radical Red</a>
                     </nav>
 
@@ -254,18 +266,15 @@
         <footer class="mt-auto py-4">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-300">
                 <div class="flex justify-start space-x-4">
-                    <a href="#" class="hover:text-white transition-colors">Pokédex</a>
-                    <a href="#" class="hover:text-white transition-colors">Replay</a>
-                    <a href="#" class="hover:text-white transition-colors">Rules</a>
-                    <a href="#" class="hover:text-white transition-colors">Credits</a>
-                    <a href="#" class="hover:text-white transition-colors">Forum</a>
-                    <a href="#" class="hover:text-white transition-colors">GitHub</a>
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="https://play.pokemonshowdown.com/pokedex" target="_blank" class="hover:text-white transition-colors">Pokédex</a>
+                    <a href="https://replay.pokemonshowdown.com/" target="_blank" class="hover:text-white transition-colors">Replay</a>
+                    <a href="https://pokemonshowdown.com/rules" target="_blank" class="hover:text-white transition-colors">Rules</a>
+                    <a href="https://pokemonshowdown.com/credits" target="_blank" class="hover:text-white transition-colors">Credits</a>
+                    <a href="https://github.com/smogon/pokemon-showdown" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                    <a href="https://pokemonshowdown.com/privacy" target="_blank" class="hover:text-white transition-colors">Privacy Policy</a>
                 </div>
             </div>
         </footer>
-
     </div>
-
 </body>
 </html>
