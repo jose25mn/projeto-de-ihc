@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After-Home | Pokémon Showdown</title>
+
+    <!-- Hotjar Tracking Code -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6434380,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilo customizado para aplicar a fonte e o fundo */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: url('assets/bg-horizon-fade@2x.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #1a202c; /* Fallback color */
+        }
+        /* Efeito de sobreposição escuro para melhor legibilidade do texto */
+        .body-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+        /* Sombra para o texto principal para melhor contraste */
+        .text-shadow-lg {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body class="text-white relative">
+
+    <div class="body-overlay"></div>
+
+    <div class="flex flex-col min-h-screen">
+        <header class="bg-black bg-opacity-30 border-b border-gray-700">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex-shrink-0">
+                        <img class="h-12" src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x50/1a202c/ffffff?text=Logo';">
+                    </div>
+                    <nav class="hidden md:flex items-center space-x-2">
+                        <a href="index.html" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="https://play.pokemonshowdown.com/pokedex" target="_blank" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Pokédex</a>
+                        <a href="https://replay.pokemonshowdown.com/" target="_blank" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Replays</a>
+                        <a href="https://pokemonshowdown.com/ladder/" target="_blank" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Ladder</a>
+                        <a href="play2.html" class="bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-2 rounded-md text-sm transition-colors">Play</a>
+                    </nav>
+                    <div class="md:hidden">
+                        <button class="text-gray-300 hover:text-white focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-grow flex flex-col items-center justify-center text-center px-4">
+            <div class="bg-black bg-opacity-40 p-6 md:p-8 rounded-xl shadow-2xl border border-gray-800 max-w-4xl w-full">
+                <h1 class="text-4xl md:text-5xl font-black tracking-tighter mb-3 text-shadow-lg">Play Pokemon battles online!</h1>
+                <p class="text-lg text-gray-200 mb-6 max-w-2xl mx-auto">Play with randomly generated teams OR build your own!</p>
+                
+                <div class="w-full max-w-2xl aspect-video mx-auto mb-6 shadow-2xl rounded-lg overflow-hidden border-2 border-gray-700/50">
+                    <iframe 
+                        class="w-full h-full" 
+                        src="https://www.youtube.com/embed/daw9GoZWWSI?si=hRrHix8uhjzWUFlu" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="play2.html" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors shadow-lg flex items-center">
+                        Play Online
+                    </a>
+                    <span class="text-gray-300 font-bold text-md">OR</span>
+                    <a href="https://pokemonshowdown.com/autodownload/win" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors shadow-lg flex items-center">
+                        Install for Windows
+                        <i class="fab fa-windows ml-3 text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-black bg-opacity-30 mt-12 py-4">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <div class="flex space-x-4 mb-4 md:mb-0">
+                    <a href="https://pokemonshowdown.com/rules" target="_blank" class="hover:text-white transition-colors">Rules</a>
+                    <a href="https://pokemonshowdown.com/credits" target="_blank" class="hover:text-white transition-colors">Credits</a>
+                    <a href="https://pokemonshowdown.com/privacy" target="_blank" class="hover:text-white transition-colors">Privacy Policy</a>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://calc.pokemonshowdown.com/" target="_blank" class="hover:text-white transition-colors flex items-center"><i class="fas fa-calculator mr-2"></i> Damage calculator</a>
+                    <a href="https://www.smogon.com/stats/" target="_blank" class="hover:text-white transition-colors flex items-center"><i class="fas fa-chart-bar mr-2"></i> Usage stats</a>
+                    <a href="https://github.com/smogon/pokemon-showdown" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center"><i class="fab fa-github mr-2"></i> GitHub repository</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
