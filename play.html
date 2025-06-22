@@ -20,7 +20,6 @@
         /* Estilos customizados para aplicar a fonte e o fundo */
         body {
             font-family: 'Roboto', sans-serif;
-            /* Imagem de fundo baseada no seu CSS anterior */
             background-image: url('https://i.imgur.com/w1iOFJ9.jpg');
             background-size: cover;
             background-position: center;
@@ -30,39 +29,32 @@
 
         /* Cor de fundo translúcida para os painéis */
         .panel-bg {
-            background-color: rgba(10, 10, 20, 0.75);
-            backdrop-filter: blur(4px);
+            background-color: rgba(10, 10, 20, 0.8);
+            backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
         }
         
-        /* Estilo para os botões de ação principais */
         .btn-action {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 1rem;
             border-radius: 0.5rem;
             font-weight: bold;
-            text-transform: uppercase;
             color: white;
             transition: transform 0.2s, filter 0.2s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: left;
         }
         .btn-action:hover {
             transform: translateY(-2px);
-            filter: brightness(1.1);
+            filter: brightness(1.15);
         }
 
-        /* Estilo para ícones de Pokémon de exemplo */
         .team-icon {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 32px;
+            height: 32px;
+            background-color: #374151; /* gray-700 */
+            border: 1px solid #4b5563; /* gray-600 */
             border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
         }
     </style>
 </head>
@@ -71,22 +63,19 @@
     <div class="flex flex-col min-h-screen">
 
         <!-- Header -->
-        <header class="bg-gray-900 bg-opacity-60 border-b border-gray-700/50 shadow-lg">
+        <header class="bg-gray-900 bg-opacity-70 border-b border-gray-700/50 shadow-lg">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
-                    <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center">
-                         <img class="h-12" src="https://placehold.co/200x50/transparent/ffffff?text=Pok%C3%A9mon+Showdown" alt="Pokémon Showdown Logo">
+                         <img class="h-12" src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x50/1a202c/ffffff?text=Logo';">
                     </div>
 
-                    <!-- Navegação Central (Desktop) -->
-                    <nav class="hidden md:flex items-center space-x-2 bg-gray-800/50 p-1 rounded-lg">
-                        <a href="#" class="bg-gray-700/80 text-white px-3 py-2 rounded-md text-sm font-medium"><i class="fas fa-home"></i></a>
-                        <a href="#" class="text-gray-300 hover:bg-gray-700/50 px-3 py-2 rounded-md text-sm font-medium">Smogon</a>
-                        <a href="#" class="text-gray-300 hover:bg-gray-700/50 px-3 py-2 rounded-md text-sm font-medium">Radical Red</a>
+                    <nav class="hidden md:flex items-center space-x-1 bg-gray-800/60 p-1 rounded-lg">
+                        <a href="#" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md text-sm font-bold"><i class="fas fa-home"></i></a>
+                        <a href="#" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Smogon</a>
+                        <a href="#" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Radical Red</a>
                     </nav>
 
-                    <!-- Ações do Usuário -->
                     <div class="flex items-center space-x-3">
                         <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors">Login</a>
                         <a href="#" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors">Register</a>
@@ -101,74 +90,75 @@
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
 
                 <!-- Coluna Esquerda: Opções de Batalha -->
-                <div class="lg:col-span-1 space-y-6">
-                    <!-- Random Battle -->
-                    <div class="panel-bg p-5 rounded-lg shadow-2xl">
-                        <select class="w-full bg-gray-800 border border-gray-600 rounded-md p-3 text-lg font-bold">
+                <div class="lg:col-span-1 space-y-5">
+                    <div class="panel-bg p-5 shadow-2xl">
+                        <select class="w-full bg-gray-800 border border-gray-600 rounded-md p-3 text-lg font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option>Random Battle</option>
                             <option>OU</option>
                             <option>Ubers</option>
                         </select>
-                        <div class="my-4 p-3 bg-black/20 rounded-md">
+                        <div class="my-4 p-3 bg-black/30 rounded-md">
                             <p class="text-sm text-gray-300 mb-2">Random Battle Team</p>
                             <div class="flex space-x-2">
-                                <div class="team-icon"><i class="fas fa-question"></i></div>
-                                <div class="team-icon"><i class="fas fa-question"></i></div>
-                                <div class="team-icon"><i class="fas fa-question"></i></div>
-                                <div class="team-icon"><i class="fas fa-question"></i></div>
-                                <div class="team-icon"><i class="fas fa-question"></i></div>
-                                <div class="team-icon"><i class="fas fa-question"></i></div>
+                                <div class="team-icon"></div><div class="team-icon"></div><div class="team-icon"></div>
+                                <div class="team-icon"></div><div class="team-icon"></div><div class="team-icon"></div>
                             </div>
                         </div>
                         <label class="flex items-center space-x-3 text-gray-300 cursor-pointer">
                             <input type="checkbox" class="h-5 w-5 bg-gray-700 border-gray-500 rounded text-blue-500 focus:ring-blue-500">
                             <span>Don't allow spectators</span>
                         </label>
-                        <button class="btn-action bg-red-600 hover:bg-red-700 w-full mt-4">
+                        <button class="text-center text-xl bg-red-600 hover:bg-red-700 w-full mt-4 btn-action">
                             Battle!
                         </button>
                         <p class="text-center text-sm text-gray-400 mt-2">Find a random opponent</p>
                     </div>
 
-                    <!-- Team Builder -->
-                    <div class="panel-bg p-5 rounded-lg shadow-2xl text-center">
-                         <button class="btn-action bg-green-600 hover:bg-green-700 w-full">
-                            Team Builder
-                        </button>
-                        <p class="text-center text-sm text-gray-400 mt-2">Create your Team!</p>
-                    </div>
+                    <button class="btn-action bg-green-600 hover:bg-green-700 w-full">
+                        <div>
+                            <p class="font-bold text-lg">Team Builder</p>
+                            <p class="text-sm text-green-200">Create your Team!</p>
+                        </div>
+                    </button>
 
-                    <!-- Tournaments -->
-                    <div class="panel-bg p-5 rounded-lg shadow-2xl text-center">
-                         <button class="btn-action bg-blue-500 hover:bg-blue-600 w-full">
-                           Tournaments
-                        </button>
-                        <p class="text-center text-sm text-gray-400 mt-2">Check the current tournaments</p>
-                    </div>
+                    <button class="btn-action bg-blue-500 hover:bg-blue-600 w-full">
+                        <div>
+                           <p class="font-bold text-lg">Tournaments</p>
+                           <p class="text-sm text-blue-200">Check the current tournaments</p>
+                        </div>
+                    </button>
                 </div>
 
                 <!-- Coluna Central: Stats e Notícias -->
                 <div class="lg:col-span-2 space-y-6">
                     <div class="grid grid-cols-2 gap-6">
-                        <div class="panel-bg p-5 rounded-lg shadow-2xl text-center">
-                            <p class="text-3xl font-bold">15000</p>
-                            <p class="text-gray-300">users online</p>
+                        <div class="panel-bg p-5 shadow-2xl flex items-center justify-center space-x-4">
+                             <i class="fas fa-users text-3xl text-gray-400"></i>
+                             <div>
+                                <p class="text-2xl font-bold">15000</p>
+                                <p class="text-gray-300">users online</p>
+                            </div>
                         </div>
-                        <div class="panel-bg p-5 rounded-lg shadow-2xl text-center">
-                            <p class="text-3xl font-bold">2500</p>
-                            <p class="text-gray-300">active battles</p>
+                        <div class="panel-bg p-5 shadow-2xl flex items-center justify-center space-x-4">
+                            <i class="fas fa-khanda text-3xl text-gray-400"></i>
+                            <div>
+                                <p class="text-2xl font-bold">2500</p>
+                                <p class="text-gray-300">active battles</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="panel-bg p-5 rounded-lg shadow-2xl h-96">
-                        <h3 class="text-2xl font-bold border-b border-gray-700 pb-2 mb-4">News</h3>
-                        <p class="text-gray-300">Welcome to the new After-Play interface! We're excited to bring you a fresh new look.</p>
+                    <div class="panel-bg p-5 shadow-2xl h-96">
+                        <h3 class="text-xl font-bold border-b border-gray-700 pb-2 mb-4">News</h3>
+                        <div class="text-gray-300 space-y-2">
+                             <p>Happy B-Day PS!</p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Coluna Direita: Servidores -->
-                <div class="lg:col-span-1 panel-bg p-5 rounded-lg shadow-2xl">
-                    <h3 class="text-2xl font-bold border-b border-gray-700 pb-2 mb-4">Servers</h3>
-                    <ul class="space-y-2">
+                <div class="lg:col-span-1 panel-bg p-5 shadow-2xl">
+                    <h3 class="text-xl font-bold border-b border-gray-700 pb-2 mb-4">Servers</h3>
+                    <ul class="space-y-1 text-sm">
                         <li class="flex justify-between items-center p-2 rounded-md hover:bg-white/10">
                             <div>
                                 <p class="font-bold">Smogon University</p>
@@ -177,39 +167,34 @@
                             <span class="text-gray-300">13796 users</span>
                         </li>
                         <li class="flex justify-between items-center p-2 rounded-md hover:bg-white/10">
-                            <p class="font-bold">Smogon Tournaments</p>
-                            <span class="text-gray-300">190 users</span>
-                        </li>
+                            <p>Smogon Tournaments</p><span class="text-gray-300">190 users</span></li>
                         <li class="flex justify-between items-center p-2 rounded-md hover:bg-white/10">
-                            <p class="font-bold">Radical Red</p>
-                            <span class="text-gray-300">77 users</span>
-                        </li>
-                         <li class="flex justify-between items-center p-2 rounded-md hover:bg-white/10">
-                            <p class="font-bold">Draft League</p>
-                            <span class="text-gray-300">62 users</span>
-                        </li>
+                            <p>Radical Red</p><span class="text-gray-300">77 users</span></li>
                         <li class="flex justify-between items-center p-2 rounded-md hover:bg-white/10">
-                            <p class="font-bold">Random Other Metagam</p>
-                            <span class="text-gray-300">18 users</span>
-                        </li>
+                            <p>Draft League</p><span class="text-gray-300">62 users</span></li>
+                        <li class="flex justify-between items-center p-2 rounded-md hover:bg-white/10">
+                           <p>Random Other Metagam</p><span class="text-gray-300">18 users</span></li>
+                        <li class="flex justify-between items-center p-2 rounded-md hover:bg-white/10">
+                           <p>Dawn</p><span class="text-gray-300">15 users</span></li>
+                        <li class="flex justify-between items-center p-2 rounded-md hover:bg-white/10">
+                           <p>China</p><span class="text-gray-300">11 users</span></li>
+                        <li class="flex justify-between items-center p-2 rounded-md hover:bg-white/10">
+                           <p>Dragon Heaven</p><span class="text-gray-300">5 users</span></li>
                          <li class="flex justify-between items-center p-2 rounded-md hover:bg-white/10">
-                            <p class="font-bold">Dawn</p>
-                            <span class="text-gray-300">15 users</span>
-                        </li>
+                           <p>Galactic Pokemon Leagu</p><span class="text-gray-300">3 users</span></li>
                          <li class="flex justify-between items-center p-2 rounded-md hover:bg-white/10">
-                            <p class="font-bold">China</p>
-                            <span class="text-gray-300">11 users</span>
-                        </li>
+                           <p>Draft Hub</p><span class="text-gray-300">2 users</span></li>
+                        <li class="p-2 mt-2">
+                           <a href="#" class="text-blue-400 hover:text-blue-300">Other servers...</a></li>
                     </ul>
                 </div>
-
             </div>
         </main>
 
         <!-- Footer -->
-        <footer class="bg-gray-900 bg-opacity-60 mt-8 py-4">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
-                <div class="flex justify-center space-x-4">
+        <footer class="mt-8 py-4">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-300">
+                <div class="flex justify-start space-x-4">
                     <a href="#" class="hover:text-white transition-colors">Pokédex</a>
                     <a href="#" class="hover:text-white transition-colors">Replay</a>
                     <a href="#" class="hover:text-white transition-colors">Rules</a>
