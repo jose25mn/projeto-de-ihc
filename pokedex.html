@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex | Pokémon Showdown</title>
+
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6434380,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos customizados para aplicar a fonte e o fundo */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url("https://images.unsplash.com/photo-1620452143432-3319a4294ca4?q=80&w=2070&auto=format&fit=crop");
+            background-color: #1a202c; /* Cor de fundo alternativa */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Cor de fundo translúcida para os painéis */
+        .panel-bg {
+            background-color: rgba(10, 10, 20, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+        }
+
+        /* Estilo para os cards de Pokémon */
+        .pokedex-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .pokedex-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Cores para os tipos de Pokémon */
+        .type-badge {
+            font-size: 0.7rem; /* Reduzindo o tamanho da fonte */
+            font-weight: bold;
+            padding: 0.25rem 0.6rem; /* Ajustando o padding */
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+
+        .type-grass { background-color: #78C850; color: white; }
+        .type-poison { background-color: #A040A0; color: white; }
+        .type-fire { background-color: #F08030; color: white; }
+        .type-flying { background-image: linear-gradient(to bottom, #A890F0, #8860D0); color: white; }
+        .type-water { background-color: #6890F0; color: white; }
+        .type-bug { background-color: #A8B820; color: white; }
+        .type-normal { background-color: #A8A878; color: white; }
+        .type-electric { background-color: #F8D030; color: #212121; }
+        .type-ground { background-image: linear-gradient(to bottom, #E0C068, #D0B058); color: #212121; }
+        .type-fairy { background-color: #EE99AC; color: white; }
+        .type-fighting { background-color: #C03028; color: white; }
+        .type-psychic { background-color: #F85888; color: white; }
+        .type-rock { background-color: #B8A038; color: white; }
+        .type-steel { background-color: #B8B8D0; color: white; }
+        .type-ice { background-color: #98D8D8; color: #212121; }
+        .type-ghost { background-color: #705898; color: white; }
+        .type-dragon { background-image: linear-gradient(to bottom, #7038F8, #5018D8); color: white; }
+        .type-dark { background-color: #705848; color: white; }
+    </style>
+</head>
+<body class="text-white">
+
+    <div class="flex flex-col min-h-screen">
+
+        <header class="bg-gray-900 bg-opacity-70 border-b border-gray-700/50 shadow-lg sticky top-0 z-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html"><img class="h-12" src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x50/1a202c/ffffff?text=Logo';"></a>
+                    </div>
+                    <nav class="hidden md:flex items-center space-x-1 bg-gray-800/60 p-1 rounded-lg">
+                        <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="play.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Play</a>
+                        <a href="pokedex.html" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold"><i class="fas fa-book-open mr-2"></i>Pokédex</a>
+                        <a href="https://www.smogon.com/" target="_blank" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Smogon</a>
+                    </nav>
+                    <div class="flex items-center space-x-3">
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors">Login</a>
+                        <button class="text-gray-300 hover:text-white"><i class="fas fa-volume-up text-xl"></i></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            
+            <div class="text-center mb-10">
+                <h1 class="text-4xl md:text-5xl font-black tracking-tighter mb-3" style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);">Pokédex</h1>
+                <p class="text-lg text-gray-200 mb-6 max-w-2xl mx-auto">Procure por seu Pokémon favorito!</p>
+                <div class="max-w-xl mx-auto">
+                    <div class="relative">
+                        <input type="search" placeholder="Buscar por nome ou número..." class="w-full bg-gray-900/80 border-2 border-gray-600 rounded-full py-3 pl-5 pr-12 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                        <button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">
+                            <i class="fas fa-search text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+                
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bulbasaur" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#001</span>
+                    <h3 class="text-xl font-bold mb-2">Bulbasaur</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-grass">Grass</span>
+                        <span class="type-badge type-poison">Poison</span>
+                    </div>
+                </div>
+                
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="Charmander" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#004</span>
+                    <h3 class="text-xl font-bold mb-2">Charmander</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-fire">Fire</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png" alt="Squirtle" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#007</span>
+                    <h3 class="text-xl font-bold mb-2">Squirtle</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-water">Water</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#025</span>
+                    <h3 class="text-xl font-bold mb-2">Pikachu</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-electric">Electric</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png" alt="Clefairy" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#035</span>
+                    <h3 class="text-xl font-bold mb-2">Clefairy</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-fairy">Fairy</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png" alt="Jigglypuff" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#039</span>
+                    <h3 class="text-xl font-bold mb-2">Jigglypuff</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-normal">Normal</span>
+                        <span class="type-badge type-fairy">Fairy</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png" alt="Arcanine" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#059</span>
+                    <h3 class="text-xl font-bold mb-2">Arcanine</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-fire">Fire</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png" alt="Alakazam" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#065</span>
+                    <h3 class="text-xl font-bold mb-2">Alakazam</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-psychic">Psychic</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png" alt="Meowth" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#052</span>
+                    <h3 class="text-xl font-bold mb-2">Meowth</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-normal">Normal</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png" alt="Psyduck" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#054</span>
+                    <h3 class="text-xl font-bold mb-2">Psyduck</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-water">Water</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png" alt="Machop" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#066</span>
+                    <h3 class="text-xl font-bold mb-2">Machop</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-fighting">Fighting</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png" alt="Geodude" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#074</span>
+                    <h3 class="text-xl font-bold mb-2">Geodude</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-rock">Rock</span>
+                        <span class="type-badge type-ground">Ground</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png" alt="Gengar" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#094</span>
+                    <h3 class="text-xl font-bold mb-2">Gengar</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-ghost">Ghost</span>
+                        <span class="type-badge type-poison">Poison</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png" alt="Gyarados" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#130</span>
+                    <h3 class="text-xl font-bold mb-2">Gyarados</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-water">Water</span>
+                        <span class="type-badge type-flying">Flying</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png" alt="Lapras" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#131</span>
+                    <h3 class="text-xl font-bold mb-2">Lapras</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-water">Water</span>
+                        <span class="type-badge type-ice">Ice</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png" alt="Eevee" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#133</span>
+                    <h3 class="text-xl font-bold mb-2">Eevee</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-normal">Normal</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png" alt="Snorlax" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#143</span>
+                    <h3 class="text-xl font-bold mb-2">Snorlax</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-normal">Normal</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png" alt="Dragonite" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#149</span>
+                    <h3 class="text-xl font-bold mb-2">Dragonite</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-dragon">Dragon</span>
+                        <span class="type-badge type-flying">Flying</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png" alt="Mewtwo" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#150</span>
+                    <h3 class="text-xl font-bold mb-2">Mewtwo</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-psychic">Psychic</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png" alt="Mew" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#151</span>
+                    <h3 class="text-xl font-bold mb-2">Mew</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-psychic">Psychic</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png" alt="Umbreon" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#197</span>
+                    <h3 class="text-xl font-bold mb-2">Umbreon</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-dark">Dark</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png" alt="Tyranitar" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#248</span>
+                    <h3 class="text-xl font-bold mb-2">Tyranitar</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-rock">Rock</span>
+                        <span class="type-badge type-dark">Dark</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png" alt="Lucario" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#448</span>
+                    <h3 class="text-xl font-bold mb-2">Lucario</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-fighting">Fighting</span>
+                        <span class="type-badge type-steel">Steel</span>
+                    </div>
+                </div>
+
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png" alt="Gastly" class="h-32 w-32 mb-3">
+                    <span class="text-sm font-bold text-gray-400">#092</span>
+                    <h3 class="text-xl font-bold mb-2">Gastly</h3>
+                    <div class="flex space-x-2">
+                        <span class="type-badge type-ghost">Ghost</span>
+                        <span class="type-badge type-poison">Poison</span>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+
+        <footer class="mt-auto py-6 bg-gray-900 bg-opacity-60">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-300">
+                <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                    <div class="flex space-x-4 mb-4 md:mb-0">
+                        <a href="https://pokemonshowdown.com/rules" target="_blank" class="hover:text-white transition-colors">Rules</a>
+                        <a href="https://pokemonshowdown.com/credits" target="_blank" class="hover:text-white transition-colors">Credits</a>
+                        <a href="https://github.com/smogon/pokemon-showdown" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                        <a href="https://pokemonshowdown.com/privacy" target="_blank" class="hover:text-white transition-colors">Privacy Policy</a>
+                    </div>
+                    <span class="text-xs">Pokémon © 2002-2024 Pokémon. © 1995-2024 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo.</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
