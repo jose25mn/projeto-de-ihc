@@ -22,6 +22,7 @@
             background-attachment: fixed;
         }
 
+        /* Filtro de opacidade para o fundo */
         body::before {
             content: "";
             position: fixed;
@@ -29,7 +30,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(10, 10, 20, 0.7); /* Filtro mais opaco */
+            background-color: rgba(10, 10, 20, 0.7);
             z-index: -1;
         }
 
@@ -94,54 +95,90 @@
 
     <div class="relative flex flex-col min-h-screen">
         <header class="bg-gray-900 bg-opacity-70 border-b border-gray-700/50 shadow-lg sticky top-0 z-50">
-            </header>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html"><img class="h-12" src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x50/1a202c/ffffff?text=Logo';"></a>
+                    </div>
+                    <nav class="hidden md:flex items-center space-x-1 bg-gray-800/60 p-1 rounded-lg">
+                        <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="play.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Play</a>
+                        <a href="pokedex.html" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold"><i class="fas fa-book-open mr-2"></i>Pokédex</a>
+                        <a href="https://www.smogon.com/" target="_blank" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Smogon</a>
+                    </nav>
+                    <div class="flex items-center space-x-3">
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors">Login</a>
+                        <button class="text-gray-300 hover:text-white"><i class="fas fa-volume-up text-xl"></i></button>
+                    </div>
+                </div>
+            </div>
+        </header>
 
         <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="text-center mb-10">
                 <h1 class="text-4xl md:text-5xl font-black tracking-tighter mb-3" style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);">Pokédex</h1>
                 <p class="text-lg text-gray-200 mb-6 max-w-2xl mx-auto">Procure por seu Pokémon favorito!</p>
+                <div class="max-w-xl mx-auto">
+                    <div class="relative">
+                        <input type="search" placeholder="Buscar por nome ou número..." class="w-full bg-gray-900/80 border-2 border-gray-600 rounded-full py-3 pl-5 pr-12 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                        <button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">
+                            <i class="fas fa-search text-xl"></i>
+                        </button>
+                    </div>
                 </div>
+            </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bulbasaur" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#001</span><h3 class="pokemon-name text-xl font-bold mb-2">Bulbasaur</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-grass">Grass</span><span class="type-badge type-poison">Poison</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="Charmander" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#004</span><h3 class="pokemon-name text-xl font-bold mb-2">Charmander</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-fire">Fire</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png" alt="Squirtle" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#007</span><h3 class="pokemon-name text-xl font-bold mb-2">Squirtle</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-water">Water</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#025</span><h3 class="pokemon-name text-xl font-bold mb-2">Pikachu</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-electric">Electric</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png" alt="Clefairy" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#035</span><h3 class="pokemon-name text-xl font-bold mb-2">Clefairy</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-fairy">Fairy</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png" alt="Jigglypuff" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#039</span><h3 class="pokemon-name text-xl font-bold mb-2">Jigglypuff</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-normal">Normal</span><span class="type-badge type-fairy">Fairy</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png" alt="Arcanine" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#059</span><h3 class="pokemon-name text-xl font-bold mb-2">Arcanine</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-fire">Fire</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png" alt="Alakazam" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#065</span><h3 class="pokemon-name text-xl font-bold mb-2">Alakazam</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-psychic">Psychic</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png" alt="Meowth" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#052</span><h3 class="pokemon-name text-xl font-bold mb-2">Meowth</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-normal">Normal</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png" alt="Psyduck" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#054</span><h3 class="pokemon-name text-xl font-bold mb-2">Psyduck</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-water">Water</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png" alt="Machop" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#066</span><h3 class="pokemon-name text-xl font-bold mb-2">Machop</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-fighting">Fighting</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png" alt="Geodude" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#074</span><h3 class="pokemon-name text-xl font-bold mb-2">Geodude</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-rock">Rock</span><span class="type-badge type-ground">Ground</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png" alt="Gastly" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#092</span><h3 class="pokemon-name text-xl font-bold mb-2">Gastly</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-ghost">Ghost</span><span class="type-badge type-poison">Poison</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png" alt="Gengar" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#094</span><h3 class="pokemon-name text-xl font-bold mb-2">Gengar</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-ghost">Ghost</span><span class="type-badge type-poison">Poison</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png" alt="Gyarados" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#130</span><h3 class="pokemon-name text-xl font-bold mb-2">Gyarados</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-water">Water</span><span class="type-badge type-flying">Flying</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png" alt="Lapras" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#131</span><h3 class="pokemon-name text-xl font-bold mb-2">Lapras</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-water">Water</span><span class="type-badge type-ice">Ice</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png" alt="Eevee" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#133</span><h3 class="pokemon-name text-xl font-bold mb-2">Eevee</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-normal">Normal</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png" alt="Snorlax" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#143</span><h3 class="pokemon-name text-xl font-bold mb-2">Snorlax</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-normal">Normal</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png" alt="Dragonite" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#149</span><h3 class="pokemon-name text-xl font-bold mb-2">Dragonite</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-dragon">Dragon</span><span class="type-badge type-flying">Flying</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png" alt="Mewtwo" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#150</span><h3 class="pokemon-name text-xl font-bold mb-2">Mewtwo</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-psychic">Psychic</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png" alt="Mew" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#151</span><h3 class="pokemon-name text-xl font-bold mb-2">Mew</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-psychic">Psychic</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png" alt="Umbreon" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#197</span><h3 class="pokemon-name text-xl font-bold mb-2">Umbreon</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-dark">Dark</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png" alt="Tyranitar" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#248</span><h3 class="pokemon-name text-xl font-bold mb-2">Tyranitar</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-rock">Rock</span><span class="type-badge type-dark">Dark</span></div></div>
-                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png" alt="Lucario" class="h-32 w-32 mb-3"> <span class="pokemon-number text-sm font-bold text-gray-400">#448</span><h3 class="pokemon-name text-xl font-bold mb-2">Lucario</h3><div class="pokemon-types flex space-x-2"><span class="type-badge type-fighting">Fighting</span><span class="type-badge type-steel">Steel</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bulbasaur" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#001</span><h3 class="pokemon-name text-xl font-bold mb-2">Bulbasaur</h3><div class="flex space-x-2"><span class="type-badge type-grass">Grass</span><span class="type-badge type-poison">Poison</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="Charmander" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#004</span><h3 class="pokemon-name text-xl font-bold mb-2">Charmander</h3><div class="flex space-x-2"><span class="type-badge type-fire">Fire</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png" alt="Squirtle" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#007</span><h3 class="pokemon-name text-xl font-bold mb-2">Squirtle</h3><div class="flex space-x-2"><span class="type-badge type-water">Water</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#025</span><h3 class="pokemon-name text-xl font-bold mb-2">Pikachu</h3><div class="flex space-x-2"><span class="type-badge type-electric">Electric</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png" alt="Clefairy" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#035</span><h3 class="pokemon-name text-xl font-bold mb-2">Clefairy</h3><div class="flex space-x-2"><span class="type-badge type-fairy">Fairy</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png" alt="Jigglypuff" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#039</span><h3 class="pokemon-name text-xl font-bold mb-2">Jigglypuff</h3><div class="flex space-x-2"><span class="type-badge type-normal">Normal</span><span class="type-badge type-fairy">Fairy</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png" alt="Arcanine" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#059</span><h3 class="pokemon-name text-xl font-bold mb-2">Arcanine</h3><div class="flex space-x-2"><span class="type-badge type-fire">Fire</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png" alt="Alakazam" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#065</span><h3 class="pokemon-name text-xl font-bold mb-2">Alakazam</h3><div class="flex space-x-2"><span class="type-badge type-psychic">Psychic</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png" alt="Meowth" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#052</span><h3 class="pokemon-name text-xl font-bold mb-2">Meowth</h3><div class="flex space-x-2"><span class="type-badge type-normal">Normal</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png" alt="Psyduck" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#054</span><h3 class="pokemon-name text-xl font-bold mb-2">Psyduck</h3><div class="flex space-x-2"><span class="type-badge type-water">Water</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png" alt="Machop" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#066</span><h3 class="pokemon-name text-xl font-bold mb-2">Machop</h3><div class="flex space-x-2"><span class="type-badge type-fighting">Fighting</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png" alt="Geodude" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#074</span><h3 class="pokemon-name text-xl font-bold mb-2">Geodude</h3><div class="flex space-x-2"><span class="type-badge type-rock">Rock</span><span class="type-badge type-ground">Ground</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png" alt="Gastly" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#092</span><h3 class="pokemon-name text-xl font-bold mb-2">Gastly</h3><div class="flex space-x-2"><span class="type-badge type-ghost">Ghost</span><span class="type-badge type-poison">Poison</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png" alt="Gengar" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#094</span><h3 class="pokemon-name text-xl font-bold mb-2">Gengar</h3><div class="flex space-x-2"><span class="type-badge type-ghost">Ghost</span><span class="type-badge type-poison">Poison</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png" alt="Gyarados" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#130</span><h3 class="pokemon-name text-xl font-bold mb-2">Gyarados</h3><div class="flex space-x-2"><span class="type-badge type-water">Water</span><span class="type-badge type-flying">Flying</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png" alt="Lapras" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#131</span><h3 class="pokemon-name text-xl font-bold mb-2">Lapras</h3><div class="flex space-x-2"><span class="type-badge type-water">Water</span><span class="type-badge type-ice">Ice</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png" alt="Eevee" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#133</span><h3 class="pokemon-name text-xl font-bold mb-2">Eevee</h3><div class="flex space-x-2"><span class="type-badge type-normal">Normal</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png" alt="Snorlax" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#143</span><h3 class="pokemon-name text-xl font-bold mb-2">Snorlax</h3><div class="flex space-x-2"><span class="type-badge type-normal">Normal</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png" alt="Dragonite" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#149</span><h3 class="pokemon-name text-xl font-bold mb-2">Dragonite</h3><div class="flex space-x-2"><span class="type-badge type-dragon">Dragon</span><span class="type-badge type-flying">Flying</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png" alt="Mewtwo" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#150</span><h3 class="pokemon-name text-xl font-bold mb-2">Mewtwo</h3><div class="flex space-x-2"><span class="type-badge type-psychic">Psychic</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png" alt="Mew" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#151</span><h3 class="pokemon-name text-xl font-bold mb-2">Mew</h3><div class="flex space-x-2"><span class="type-badge type-psychic">Psychic</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png" alt="Umbreon" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#197</span><h3 class="pokemon-name text-xl font-bold mb-2">Umbreon</h3><div class="flex space-x-2"><span class="type-badge type-dark">Dark</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png" alt="Tyranitar" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#248</span><h3 class="pokemon-name text-xl font-bold mb-2">Tyranitar</h3><div class="flex space-x-2"><span class="type-badge type-rock">Rock</span><span class="type-badge type-dark">Dark</span></div></div>
+                <div class="pokedex-card panel-bg p-4 flex flex-col items-center justify-center text-center"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png" alt="Lucario" class="h-32 w-32 mb-3"> <span class="text-sm font-bold text-gray-400">#448</span><h3 class="pokemon-name text-xl font-bold mb-2">Lucario</h3><div class="flex space-x-2"><span class="type-badge type-fighting">Fighting</span><span class="type-badge type-steel">Steel</span></div></div>
             </div>
         </main>
 
         <footer class="mt-auto py-6 bg-gray-900 bg-opacity-60">
-            </footer>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-300">
+                <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                    <div class="flex space-x-4 mb-4 md:mb-0">
+                        <a href="https://pokemonshowdown.com/rules" target="_blank" class="hover:text-white transition-colors">Rules</a>
+                        <a href="https://pokemonshowdown.com/credits" target="_blank" class="hover:text-white transition-colors">Credits</a>
+                        <a href="https://github.com/smogon/pokemon-showdown" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                        <a href="https://pokemonshowdown.com/privacy" target="_blank" class="hover:text-white transition-colors">Privacy Policy</a>
+                    </div>
+                    <span class="text-xs">Pokémon © 2002-2024 Pokémon. © 1995-2024 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo.</span>
+                </div>
+            </div>
+        </footer>
     </div>
 
-    <div id="pokemon-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4 transition-opacity duration-300">
+    <div id="pokemon-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-[100] p-4 transition-opacity duration-300">
         <div class="panel-bg w-full max-w-4xl max-h-full overflow-y-auto p-6 relative">
             <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl z-10">&times;</button>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="flex flex-col items-center text-center">
                     <h2 id="modal-pokemon-name" class="text-4xl font-bold mb-1"> </h2>
                     <p id="modal-pokemon-number" class="text-xl text-gray-400 font-bold mb-3"> </p>
-                    <img id="modal-pokemon-img" src="" alt="Pokemon" class="h-48 w-48 mb-4">
+                    <img id="modal-pokemon-img" src="" alt="Pokemon" class="h-48 w-48 mb-4 drop-shadow-lg">
                     <div id="modal-pokemon-types" class="flex space-x-2 mb-4"></div>
                     <div class="text-left w-full grid grid-cols-2 gap-x-4 text-sm">
                         <div><strong class="text-gray-400">Size:</strong> <span id="modal-pokemon-size"> </span></div>
@@ -172,179 +209,34 @@
             const modal = document.getElementById('pokemon-modal');
             const closeModalBtn = document.getElementById('close-modal');
             const pokedexCards = document.querySelectorAll('.pokedex-card');
-            
-            // DADOS COMPLETOS PARA TODOS OS 24 POKÉMONS
+
             const pokemonData = {
-                "Bulbasaur": {
-                    name: "Bulbasaur", number: "#001", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-                    types: ['<span class="type-badge type-grass">Grass</span>', '<span class="type-badge type-poison">Poison</span>'],
-                    size: "0.7 m, 6.9 kg", abilities: "Overgrow", eggGroups: "Monster, Grass", gender: "87.5% M, 12.5% F",
-                    stats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 },
-                    evolutionChain: [ { name: 'Bulbasaur', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png' }, { name: 'Ivysaur', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png' }, { name: 'Venusaur', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png' } ]
-                },
-                "Charmander": {
-                    name: "Charmander", number: "#004", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-                    types: ['<span class="type-badge type-fire">Fire</span>'],
-                    size: "0.6 m, 8.5 kg", abilities: "Blaze", eggGroups: "Monster, Dragon", gender: "87.5% M, 12.5% F",
-                    stats: { hp: 39, atk: 52, def: 43, spa: 60, spd: 50, spe: 65 },
-                    evolutionChain: [ { name: 'Charmander', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png' }, { name: 'Charmeleon', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png' }, { name: 'Charizard', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png' } ]
-                },
-                "Squirtle": {
-                    name: "Squirtle", number: "#007", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
-                    types: ['<span class="type-badge type-water">Water</span>'],
-                    size: "0.5 m, 9.0 kg", abilities: "Torrent", eggGroups: "Monster, Water 1", gender: "87.5% M, 12.5% F",
-                    stats: { hp: 44, atk: 48, def: 65, spa: 50, spd: 64, spe: 43 },
-                    evolutionChain: [ { name: 'Squirtle', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png' }, { name: 'Wartortle', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png' }, { name: 'Blastoise', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png' } ]
-                },
-                "Pikachu": {
-                    name: "Pikachu", number: "#025", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-                    types: ['<span class="type-badge type-electric">Electric</span>'],
-                    size: "0.4 m, 6.0 kg", abilities: "Static", eggGroups: "Field, Fairy", gender: "50% M, 50% F",
-                    stats: { hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90 },
-                    evolutionChain: [ { name: 'Pichu', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/172.png' }, { name: 'Pikachu', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png' }, { name: 'Raichu', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png' } ]
-                },
-                "Clefairy": {
-                    name: "Clefairy", number: "#035", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png",
-                    types: ['<span class="type-badge type-fairy">Fairy</span>'],
-                    size: "0.6 m, 7.5 kg", abilities: "Cute Charm", eggGroups: "Fairy", gender: "25% M, 75% F",
-                    stats: { hp: 70, atk: 45, def: 48, spa: 60, spd: 65, spe: 35 },
-                    evolutionChain: [ { name: 'Cleffa', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/173.png' }, { name: 'Clefairy', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png' }, { name: 'Clefable', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png' } ]
-                },
-                "Jigglypuff": {
-                    name: "Jigglypuff", number: "#039", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png",
-                    types: ['<span class="type-badge type-normal">Normal</span>', '<span class="type-badge type-fairy">Fairy</span>'],
-                    size: "0.5 m, 5.5 kg", abilities: "Cute Charm", eggGroups: "Fairy", gender: "25% M, 75% F",
-                    stats: { hp: 115, atk: 45, def: 20, spa: 45, spd: 25, spe: 20 },
-                    evolutionChain: [ { name: 'Igglybuff', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/174.png' }, { name: 'Jigglypuff', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png' }, { name: 'Wigglytuff', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png' } ]
-                },
-                "Arcanine": {
-                    name: "Arcanine", number: "#059", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png",
-                    types: ['<span class="type-badge type-fire">Fire</span>'],
-                    size: "1.9 m, 155.0 kg", abilities: "Intimidate", eggGroups: "Field", gender: "75% M, 25% F",
-                    stats: { hp: 90, atk: 110, def: 80, spa: 100, spd: 80, spe: 95 },
-                    evolutionChain: [ { name: 'Growlithe', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png' }, { name: 'Arcanine', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png' } ]
-                },
-                "Alakazam": {
-                    name: "Alakazam", number: "#065", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
-                    types: ['<span class="type-badge type-psychic">Psychic</span>'],
-                    size: "1.5 m, 48.0 kg", abilities: "Synchronize", eggGroups: "Human-Like", gender: "75% M, 25% F",
-                    stats: { hp: 55, atk: 50, def: 45, spa: 135, spd: 95, spe: 120 },
-                    evolutionChain: [ { name: 'Abra', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png' }, { name: 'Kadabra', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png' }, { name: 'Alakazam', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png' } ]
-                },
-                "Meowth": {
-                    name: "Meowth", number: "#052", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png",
-                    types: ['<span class="type-badge type-normal">Normal</span>'],
-                    size: "0.4 m, 4.2 kg", abilities: "Pickup", eggGroups: "Field", gender: "50% M, 50% F",
-                    stats: { hp: 40, atk: 45, def: 35, spa: 40, spd: 40, spe: 90 },
-                    evolutionChain: [ { name: 'Meowth', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png' }, { name: 'Persian', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png' } ]
-                },
-                "Psyduck": {
-                    name: "Psyduck", number: "#054", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
-                    types: ['<span class="type-badge type-water">Water</span>'],
-                    size: "0.8 m, 19.6 kg", abilities: "Damp", eggGroups: "Water 1, Field", gender: "50% M, 50% F",
-                    stats: { hp: 50, atk: 52, def: 48, spa: 65, spd: 50, spe: 55 },
-                    evolutionChain: [ { name: 'Psyduck', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png' }, { name: 'Golduck', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png' } ]
-                },
-                "Machop": {
-                    name: "Machop", number: "#066", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png",
-                    types: ['<span class="type-badge type-fighting">Fighting</span>'],
-                    size: "0.8 m, 19.5 kg", abilities: "Guts", eggGroups: "Human-Like", gender: "75% M, 25% F",
-                    stats: { hp: 70, atk: 80, def: 50, spa: 35, spd: 35, spe: 35 },
-                    evolutionChain: [ { name: 'Machop', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png' }, { name: 'Machoke', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png' }, { name: 'Machamp', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png' } ]
-                },
-                "Geodude": {
-                    name: "Geodude", number: "#074", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
-                    types: ['<span class="type-badge type-rock">Rock</span>', '<span class="type-badge type-ground">Ground</span>'],
-                    size: "0.4 m, 20.0 kg", abilities: "Rock Head", eggGroups: "Mineral", gender: "50% M, 50% F",
-                    stats: { hp: 40, atk: 80, def: 100, spa: 30, spd: 30, spe: 20 },
-                    evolutionChain: [ { name: 'Geodude', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png' }, { name: 'Graveler', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png' }, { name: 'Golem', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png' } ]
-                },
-                "Gastly": {
-                    name: "Gastly", number: "#092", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
-                    types: ['<span class="type-badge type-ghost">Ghost</span>', '<span class="type-badge type-poison">Poison</span>'],
-                    size: "1.3 m, 0.1 kg", abilities: "Levitate", eggGroups: "Amorphous", gender: "50% M, 50% F",
-                    stats: { hp: 30, atk: 35, def: 30, spa: 100, spd: 35, spe: 80 },
-                    evolutionChain: [ { name: 'Gastly', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png' }, { name: 'Haunter', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png' }, { name: 'Gengar', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png' } ]
-                },
-                "Gengar": {
-                    name: "Gengar", number: "#094", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
-                    types: ['<span class="type-badge type-ghost">Ghost</span>', '<span class="type-badge type-poison">Poison</span>'],
-                    size: "1.5 m, 40.5 kg", abilities: "Cursed Body", eggGroups: "Amorphous", gender: "50% M, 50% F",
-                    stats: { hp: 60, atk: 65, def: 60, spa: 130, spd: 75, spe: 110 },
-                    evolutionChain: [ { name: 'Gastly', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png' }, { name: 'Haunter', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png' }, { name: 'Gengar', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png' } ]
-                },
-                "Gyarados": {
-                    name: "Gyarados", number: "#130", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
-                    types: ['<span class="type-badge type-water">Water</span>', '<span class="type-badge type-flying">Flying</span>'],
-                    size: "6.5 m, 235.0 kg", abilities: "Intimidate", eggGroups: "Water 2, Dragon", gender: "50% M, 50% F",
-                    stats: { hp: 95, atk: 125, def: 79, spa: 60, spd: 100, spe: 81 },
-                    evolutionChain: [ { name: 'Magikarp', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png' }, { name: 'Gyarados', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png' } ]
-                },
-                "Lapras": {
-                    name: "Lapras", number: "#131", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
-                    types: ['<span class="type-badge type-water">Water</span>', '<span class="type-badge type-ice">Ice</span>'],
-                    size: "2.5 m, 220.0 kg", abilities: "Water Absorb", eggGroups: "Monster, Water 1", gender: "50% M, 50% F",
-                    stats: { hp: 130, atk: 85, def: 80, spa: 85, spd: 95, spe: 60 },
-                    evolutionChain: [ { name: 'Lapras', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png' } ]
-                },
-                "Eevee": {
-                    name: "Eevee", number: "#133", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
-                    types: ['<span class="type-badge type-normal">Normal</span>'],
-                    size: "0.3 m, 6.5 kg", abilities: "Run Away", eggGroups: "Field", gender: "87.5% M, 12.5% F",
-                    stats: { hp: 55, atk: 55, def: 50, spa: 45, spd: 65, spe: 55 },
-                    evolutionChain: [ { name: 'Eevee', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png' }, { name: '...', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png' } ]
-                },
-                "Snorlax": {
-                    name: "Snorlax", number: "#143", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png",
-                    types: ['<span class="type-badge type-normal">Normal</span>'],
-                    size: "2.1 m, 460.0 kg", abilities: "Immunity", eggGroups: "Monster", gender: "87.5% M, 12.5% F",
-                    stats: { hp: 160, atk: 110, def: 65, spa: 65, spd: 110, spe: 30 },
-                    evolutionChain: [ { name: 'Munchlax', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/446.png' }, { name: 'Snorlax', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png' } ]
-                },
-                "Dragonite": {
-                    name: "Dragonite", number: "#149", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
-                    types: ['<span class="type-badge type-dragon">Dragon</span>', '<span class="type-badge type-flying">Flying</span>'],
-                    size: "2.2 m, 210.0 kg", abilities: "Inner Focus", eggGroups: "Water 1, Dragon", gender: "50% M, 50% F",
-                    stats: { hp: 91, atk: 134, def: 95, spa: 100, spd: 100, spe: 80 },
-                    evolutionChain: [ { name: 'Dratini', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png' }, { name: 'Dragonair', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png' }, { name: 'Dragonite', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png' } ]
-                },
-                "Mewtwo": {
-                    name: "Mewtwo", number: "#150", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png",
-                    types: ['<span class="type-badge type-psychic">Psychic</span>'],
-                    size: "2.0 m, 122.0 kg", abilities: "Pressure", eggGroups: "No Eggs Discovered", gender: "Genderless",
-                    stats: { hp: 106, atk: 110, def: 90, spa: 154, spd: 90, spe: 130 },
-                    evolutionChain: [ { name: 'Mewtwo', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png' } ]
-                },
-                "Mew": {
-                    name: "Mew", number: "#151", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
-                    types: ['<span class="type-badge type-psychic">Psychic</span>'],
-                    size: "0.4 m, 4.0 kg", abilities: "Synchronize", eggGroups: "No Eggs Discovered", gender: "Genderless",
-                    stats: { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 },
-                    evolutionChain: [ { name: 'Mew', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png' } ]
-                },
-                "Umbreon": {
-                    name: "Umbreon", number: "#197", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png",
-                    types: ['<span class="type-badge type-dark">Dark</span>'],
-                    size: "1.0 m, 27.0 kg", abilities: "Synchronize", eggGroups: "Field", gender: "87.5% M, 12.5% F",
-                    stats: { hp: 95, atk: 65, def: 110, spa: 60, spd: 130, spe: 65 },
-                    evolutionChain: [ { name: 'Eevee', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png' }, { name: 'Umbreon', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png' } ]
-                },
-                "Tyranitar": {
-                    name: "Tyranitar", number: "#248", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png",
-                    types: ['<span class="type-badge type-rock">Rock</span>', '<span class="type-badge type-dark">Dark</span>'],
-                    size: "2.0 m, 202.0 kg", abilities: "Sand Stream", eggGroups: "Monster", gender: "50% M, 50% F",
-                    stats: { hp: 100, atk: 134, def: 110, spa: 95, spd: 100, spe: 61 },
-                    evolutionChain: [ { name: 'Larvitar', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/246.png' }, { name: 'Pupitar', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/247.png' }, { name: 'Tyranitar', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png' } ]
-                },
-                "Lucario": {
-                    name: "Lucario", number: "#448", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png",
-                    types: ['<span class="type-badge type-fighting">Fighting</span>', '<span class="type-badge type-steel">Steel</span>'],
-                    size: "1.2 m, 54.0 kg", abilities: "Steadfast", eggGroups: "Field, Human-Like", gender: "87.5% M, 12.5% F",
-                    stats: { hp: 70, atk: 110, def: 70, spa: 115, spd: 70, spe: 90 },
-                    evolutionChain: [ { name: 'Riolu', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/447.png' }, { name: 'Lucario', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png' } ]
-                }
+                "Bulbasaur": { name: "Bulbasaur", number: "#001", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png", types: ['<span class="type-badge type-grass">Grass</span>', '<span class="type-badge type-poison">Poison</span>'], size: "0.7 m, 6.9 kg", abilities: "Overgrow", eggGroups: "Monster, Grass", gender: "87.5% M, 12.5% F", stats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 }, evolutionChain: [ { name: 'Bulbasaur', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png' }, { name: 'Ivysaur', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png' }, { name: 'Venusaur', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png' } ] },
+                "Charmander": { name: "Charmander", number: "#004", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png", types: ['<span class="type-badge type-fire">Fire</span>'], size: "0.6 m, 8.5 kg", abilities: "Blaze", eggGroups: "Monster, Dragon", gender: "87.5% M, 12.5% F", stats: { hp: 39, atk: 52, def: 43, spa: 60, spd: 50, spe: 65 }, evolutionChain: [ { name: 'Charmander', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png' }, { name: 'Charmeleon', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png' }, { name: 'Charizard', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png' } ] },
+                "Squirtle": { name: "Squirtle", number: "#007", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png", types: ['<span class="type-badge type-water">Water</span>'], size: "0.5 m, 9.0 kg", abilities: "Torrent", eggGroups: "Monster, Water 1", gender: "87.5% M, 12.5% F", stats: { hp: 44, atk: 48, def: 65, spa: 50, spd: 64, spe: 43 }, evolutionChain: [ { name: 'Squirtle', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png' }, { name: 'Wartortle', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png' }, { name: 'Blastoise', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png' } ] },
+                "Pikachu": { name: "Pikachu", number: "#025", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", types: ['<span class="type-badge type-electric">Electric</span>'], size: "0.4 m, 6.0 kg", abilities: "Static", eggGroups: "Field, Fairy", gender: "50% M, 50% F", stats: { hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90 }, evolutionChain: [ { name: 'Pichu', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/172.png' }, { name: 'Pikachu', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png' }, { name: 'Raichu', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png' } ] },
+                "Clefairy": { name: "Clefairy", number: "#035", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png", types: ['<span class="type-badge type-fairy">Fairy</span>'], size: "0.6 m, 7.5 kg", abilities: "Cute Charm", eggGroups: "Fairy", gender: "25% M, 75% F", stats: { hp: 70, atk: 45, def: 48, spa: 60, spd: 65, spe: 35 }, evolutionChain: [ { name: 'Cleffa', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/173.png' }, { name: 'Clefairy', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png' }, { name: 'Clefable', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png' } ] },
+                "Jigglypuff": { name: "Jigglypuff", number: "#039", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png", types: ['<span class="type-badge type-normal">Normal</span>', '<span class="type-badge type-fairy">Fairy</span>'], size: "0.5 m, 5.5 kg", abilities: "Cute Charm", eggGroups: "Fairy", gender: "25% M, 75% F", stats: { hp: 115, atk: 45, def: 20, spa: 45, spd: 25, spe: 20 }, evolutionChain: [ { name: 'Igglybuff', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/174.png' }, { name: 'Jigglypuff', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png' }, { name: 'Wigglytuff', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png' } ] },
+                "Arcanine": { name: "Arcanine", number: "#059", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png", types: ['<span class="type-badge type-fire">Fire</span>'], size: "1.9 m, 155.0 kg", abilities: "Intimidate", eggGroups: "Field", gender: "75% M, 25% F", stats: { hp: 90, atk: 110, def: 80, spa: 100, spd: 80, spe: 95 }, evolutionChain: [ { name: 'Growlithe', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png' }, { name: 'Arcanine', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png' } ] },
+                "Alakazam": { name: "Alakazam", number: "#065", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png", types: ['<span class="type-badge type-psychic">Psychic</span>'], size: "1.5 m, 48.0 kg", abilities: "Synchronize", eggGroups: "Human-Like", gender: "75% M, 25% F", stats: { hp: 55, atk: 50, def: 45, spa: 135, spd: 95, spe: 120 }, evolutionChain: [ { name: 'Abra', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png' }, { name: 'Kadabra', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png' }, { name: 'Alakazam', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png' } ] },
+                "Meowth": { name: "Meowth", number: "#052", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png", types: ['<span class="type-badge type-normal">Normal</span>'], size: "0.4 m, 4.2 kg", abilities: "Pickup", eggGroups: "Field", gender: "50% M, 50% F", stats: { hp: 40, atk: 45, def: 35, spa: 40, spd: 40, spe: 90 }, evolutionChain: [ { name: 'Meowth', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png' }, { name: 'Persian', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png' } ] },
+                "Psyduck": { name: "Psyduck", number: "#054", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png", types: ['<span class="type-badge type-water">Water</span>'], size: "0.8 m, 19.6 kg", abilities: "Damp", eggGroups: "Water 1, Field", gender: "50% M, 50% F", stats: { hp: 50, atk: 52, def: 48, spa: 65, spd: 50, spe: 55 }, evolutionChain: [ { name: 'Psyduck', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png' }, { name: 'Golduck', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png' } ] },
+                "Machop": { name: "Machop", number: "#066", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png", types: ['<span class="type-badge type-fighting">Fighting</span>'], size: "0.8 m, 19.5 kg", abilities: "Guts", eggGroups: "Human-Like", gender: "75% M, 25% F", stats: { hp: 70, atk: 80, def: 50, spa: 35, spd: 35, spe: 35 }, evolutionChain: [ { name: 'Machop', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png' }, { name: 'Machoke', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png' }, { name: 'Machamp', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png' } ] },
+                "Geodude": { name: "Geodude", number: "#074", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png", types: ['<span class="type-badge type-rock">Rock</span>', '<span class="type-badge type-ground">Ground</span>'], size: "0.4 m, 20.0 kg", abilities: "Rock Head", eggGroups: "Mineral", gender: "50% M, 50% F", stats: { hp: 40, atk: 80, def: 100, spa: 30, spd: 30, spe: 20 }, evolutionChain: [ { name: 'Geodude', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png' }, { name: 'Graveler', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png' }, { name: 'Golem', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png' } ] },
+                "Gastly": { name: "Gastly", number: "#092", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png", types: ['<span class="type-badge type-ghost">Ghost</span>', '<span class="type-badge type-poison">Poison</span>'], size: "1.3 m, 0.1 kg", abilities: "Levitate", eggGroups: "Amorphous", gender: "50% M, 50% F", stats: { hp: 30, atk: 35, def: 30, spa: 100, spd: 35, spe: 80 }, evolutionChain: [ { name: 'Gastly', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png' }, { name: 'Haunter', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png' }, { name: 'Gengar', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png' } ] },
+                "Gengar": { name: "Gengar", number: "#094", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png", types: ['<span class="type-badge type-ghost">Ghost</span>', '<span class="type-badge type-poison">Poison</span>'], size: "1.5 m, 40.5 kg", abilities: "Cursed Body", eggGroups: "Amorphous", gender: "50% M, 50% F", stats: { hp: 60, atk: 65, def: 60, spa: 130, spd: 75, spe: 110 }, evolutionChain: [ { name: 'Gastly', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png' }, { name: 'Haunter', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png' }, { name: 'Gengar', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png' } ] },
+                "Gyarados": { name: "Gyarados", number: "#130", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png", types: ['<span class="type-badge type-water">Water</span>', '<span class="type-badge type-flying">Flying</span>'], size: "6.5 m, 235.0 kg", abilities: "Intimidate", eggGroups: "Water 2, Dragon", gender: "50% M, 50% F", stats: { hp: 95, atk: 125, def: 79, spa: 60, spd: 100, spe: 81 }, evolutionChain: [ { name: 'Magikarp', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png' }, { name: 'Gyarados', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png' } ] },
+                "Lapras": { name: "Lapras", number: "#131", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png", types: ['<span class="type-badge type-water">Water</span>', '<span class="type-badge type-ice">Ice</span>'], size: "2.5 m, 220.0 kg", abilities: "Water Absorb", eggGroups: "Monster, Water 1", gender: "50% M, 50% F", stats: { hp: 130, atk: 85, def: 80, spa: 85, spd: 95, spe: 60 }, evolutionChain: [ { name: 'Lapras', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png' } ] },
+                "Eevee": { name: "Eevee", number: "#133", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png", types: ['<span class="type-badge type-normal">Normal</span>'], size: "0.3 m, 6.5 kg", abilities: "Run Away", eggGroups: "Field", gender: "87.5% M, 12.5% F", stats: { hp: 55, atk: 55, def: 50, spa: 45, spd: 65, spe: 55 }, evolutionChain: [ { name: 'Eevee', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png' }, { name: '...', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png' } ] },
+                "Snorlax": { name: "Snorlax", number: "#143", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png", types: ['<span class="type-badge type-normal">Normal</span>'], size: "2.1 m, 460.0 kg", abilities: "Immunity", eggGroups: "Monster", gender: "87.5% M, 12.5% F", stats: { hp: 160, atk: 110, def: 65, spa: 65, spd: 110, spe: 30 }, evolutionChain: [ { name: 'Munchlax', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/446.png' }, { name: 'Snorlax', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png' } ] },
+                "Dragonite": { name: "Dragonite", number: "#149", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png", types: ['<span class="type-badge type-dragon">Dragon</span>', '<span class="type-badge type-flying">Flying</span>'], size: "2.2 m, 210.0 kg", abilities: "Inner Focus", eggGroups: "Water 1, Dragon", gender: "50% M, 50% F", stats: { hp: 91, atk: 134, def: 95, spa: 100, spd: 100, spe: 80 }, evolutionChain: [ { name: 'Dratini', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png' }, { name: 'Dragonair', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png' }, { name: 'Dragonite', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png' } ] },
+                "Mewtwo": { name: "Mewtwo", number: "#150", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png", types: ['<span class="type-badge type-psychic">Psychic</span>'], size: "2.0 m, 122.0 kg", abilities: "Pressure", eggGroups: "No Eggs Discovered", gender: "Genderless", stats: { hp: 106, atk: 110, def: 90, spa: 154, spd: 90, spe: 130 }, evolutionChain: [ { name: 'Mewtwo', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png' } ] },
+                "Mew": { name: "Mew", number: "#151", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png", types: ['<span class="type-badge type-psychic">Psychic</span>'], size: "0.4 m, 4.0 kg", abilities: "Synchronize", eggGroups: "No Eggs Discovered", gender: "Genderless", stats: { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 }, evolutionChain: [ { name: 'Mew', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png' } ] },
+                "Umbreon": { name: "Umbreon", number: "#197", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png", types: ['<span class="type-badge type-dark">Dark</span>'], size: "1.0 m, 27.0 kg", abilities: "Synchronize", eggGroups: "Field", gender: "87.5% M, 12.5% F", stats: { hp: 95, atk: 65, def: 110, spa: 60, spd: 130, spe: 65 }, evolutionChain: [ { name: 'Eevee', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png' }, { name: 'Umbreon', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png' } ] },
+                "Tyranitar": { name: "Tyranitar", number: "#248", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png", types: ['<span class="type-badge type-rock">Rock</span>', '<span class="type-badge type-dark">Dark</span>'], size: "2.0 m, 202.0 kg", abilities: "Sand Stream", eggGroups: "Monster", gender: "50% M, 50% F", stats: { hp: 100, atk: 134, def: 110, spa: 95, spd: 100, spe: 61 }, evolutionChain: [ { name: 'Larvitar', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/246.png' }, { name: 'Pupitar', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/247.png' }, { name: 'Tyranitar', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png' } ] },
+                "Lucario": { name: "Lucario", number: "#448", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png", types: ['<span class="type-badge type-fighting">Fighting</span>', '<span class="type-badge type-steel">Steel</span>'], size: "1.2 m, 54.0 kg", abilities: "Steadfast", eggGroups: "Field, Human-Like", gender: "87.5% M, 12.5% F", stats: { hp: 70, atk: 110, def: 70, spa: 115, spd: 70, spe: 90 }, evolutionChain: [ { name: 'Riolu', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/447.png' }, { name: 'Lucario', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png' } ] }
             };
-            
+
             const openModal = (pokemonName) => {
                 const data = pokemonData[pokemonName];
                 if (!data) return;
@@ -363,7 +255,7 @@
                 stats.forEach(stat => {
                     const statValue = data.stats[stat];
                     document.getElementById(`stat-${stat}-val`).innerText = statValue;
-                    document.getElementById(`stat-${stat}`).style.width = '0%'; // Reset before animating
+                    document.getElementById(`stat-${stat}`).style.width = '0%';
                     setTimeout(() => {
                         document.getElementById(`stat-${stat}`).style.width = `${(statValue / maxStat) * 100}%`;
                     }, 100);
@@ -384,10 +276,12 @@
                 });
 
                 modal.classList.remove('hidden');
+                modal.classList.add('flex');
             };
             
             const closeModal = () => {
                 modal.classList.add('hidden');
+                modal.classList.remove('flex');
             };
 
             pokedexCards.forEach(card => {
