@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>After-Home | Pokémon Showdown</title>
 
-    <!-- Hotjar Tracking Code -->
     <script>
         (function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -17,44 +16,14 @@
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-
-    <style>
-        /* Estilo customizado para aplicar a fonte e o fundo */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-image: url('assets/bg-horizon-fade@2x.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: #1a202c; /* Fallback color */
-        }
-        /* Efeito de sobreposição escuro para melhor legibilidade do texto */
-        .body-overlay {
-            background-color: rgba(0, 0, 0, 0.6);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-        }
-        /* Sombra para o texto principal para melhor contraste */
-        .text-shadow-lg {
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="text-white relative">
+<body class="relative page-index">
 
     <div class="body-overlay"></div>
 
@@ -67,10 +36,10 @@
                     </div>
                     <nav class="hidden md:flex items-center space-x-2">
                         <a href="index.html" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium">Home</a>
-                        <a href="https://play.pokemonshowdown.com/pokedex" target="_blank" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Pokédex</a>
+                        <a href="strategy.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Pokédex</a>
                         <a href="https://replay.pokemonshowdown.com/" target="_blank" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Replays</a>
-                        <a href="https://pokemonshowdown.com/ladder/" target="_blank" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Smogon</a>
-                        <a href="play2.html" class="bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-2 rounded-md text-sm transition-colors">Play</a>
+                        <a href="Smogon.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Smogon</a>
+                        <a href="play.html" class="bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-2 rounded-md text-sm transition-colors">Play</a>
                     </nav>
                     <div class="md:hidden">
                         <button class="text-gray-300 hover:text-white focus:outline-none">
@@ -98,7 +67,7 @@
                 </div>
                 
                 <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="play2.html" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors shadow-lg flex items-center">
+                    <a href="play.html" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors shadow-lg flex items-center">
                         Play Online
                     </a>
                     <span class="text-gray-300 font-bold text-md">OR</span>
@@ -125,6 +94,6 @@
             </div>
         </footer>
     </div>
-
+<script src="scripts.js" defer></script>
 </body>
 </html>
