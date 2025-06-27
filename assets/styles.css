@@ -1,0 +1,164 @@
+/* styles.css */
+
+/* General Body & Common Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-color: #1a202c; /* Fallback color */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.panel-bg {
+    background-color: rgba(10, 10, 20, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+}
+
+/* Page-specific Body backgrounds */
+body.page-index {
+    font-family: 'Inter', sans-serif;
+    background-image: url('assets/bg-horizon-fade@2x.jpg');
+}
+body.page-play {
+    background-image: url("fundo2.jpg");
+}
+body.page-smogon {
+    background-image: url("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop");
+}
+body.page-battle {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* --- Index Page Styles --- */
+.body-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.text-shadow-lg {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* --- Play Page Styles --- */
+.btn-action {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.2s, filter 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+.btn-action:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.15);
+}
+.page-play .team-icon { /* Play page specific team icon */
+    width: 32px;
+    height: 32px;
+    background-color: #374151;
+    border: 1px solid #4b5563;
+    border-radius: 50%;
+    background-size: cover;
+    image-rendering: pixelated;
+}
+.chat-messages::-webkit-scrollbar { width: 8px; }
+.chat-messages::-webkit-scrollbar-track { background: #1f2937; border-radius: 10px; }
+.chat-messages::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 10px; }
+.chat-messages::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+#team-selection-modal {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+}
+
+/* --- Smogon Pages Common Styles --- */
+.info-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 150, 255, 0.5);
+}
+.action-button {
+    transition: background-color 0.3s, transform 0.3s;
+}
+.action-button:hover {
+    transform: scale(1.05);
+}
+.forum-row:hover { background-color: rgba(30, 41, 59, 0.7); }
+.strategy-card {
+    background-color: rgba(30, 41, 59, 0.7);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.strategy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 150, 255, 0.5);
+}
+.article-card:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s;
+}
+
+
+/* --- Battle Page Styles --- */
+#arena-wrapper {
+    flex-grow: 1;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://i.imgur.com/U4dYJdY.gif");
+}
+#battle-scene .panel-bg {
+    transition: all 0.3s ease;
+}
+.health-bar-bg { background-color: #4f4f4f; border-radius: 9999px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.4); }
+.health-bar {
+    background-image: linear-gradient(45deg, #28a745, #218838);
+    transition: width 0.5s ease-in-out;
+    border-radius: 9999px;
+}
+.health-bar.low { background-image: linear-gradient(45deg, #ffc107, #e0a800); }
+.health-bar.critical { background-image: linear-gradient(45deg, #dc3545, #c82333); }
+
+/* Battle Animations */
+@keyframes idle-breathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes attack-lunge-player { 50% { transform: translate(40px, -20px) scale(1.05); } }
+@keyframes attack-lunge-opponent { 50% { transform: translate(-40px, 20px) scale(1.05); } }
+@keyframes damage-shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-10px); } 40% { transform: translateX(10px); } 60% { transform: translateX(-10px); } 80% { transform: translateX(10px); } }
+@keyframes faint-anim { 0% { opacity: 1; filter: brightness(1) grayscale(0); transform: scale(1); } 50% { opacity: 1; filter: brightness(0.5) grayscale(1); transform: scale(1.1); } 100% { opacity: 0; filter: brightness(0) grayscale(1); transform: scale(0.5); } }
+@keyframes panel-glow-player { 0%, 100% { box-shadow: 0 0 12px rgba(59, 130, 246, 0.5), 0 0 4px rgba(59, 130, 246, 0.7); } 50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 8px rgba(59, 130, 246, 1); } }
+@keyframes panel-glow-opponent { 0%, 100% { box-shadow: 0 0 12px rgba(220, 53, 69, 0.5), 0 0 4px rgba(220, 53, 69, 0.7); } 50% { box-shadow: 0 0 20px rgba(220, 53, 69, 0.8), 0 0 8px rgba(220, 53, 69, 1); } }
+@keyframes log-appear { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.pokemon-sprite { width: 280px; height: 280px; image-rendering: pixelated; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6)); transition: transform 0.3s ease; animation: idle-breathe 3s ease-in-out infinite; }
+@media (max-width: 768px) { .pokemon-sprite { width: 150px; height: 150px; } }
+.is-attacking-player { animation: attack-lunge-player 0.5s ease-in-out; }
+.is-attacking-opponent { animation: attack-lunge-opponent 0.5s ease-in-out; }
+.is-taking-damage { animation: damage-shake 0.4s; }
+.is-fainting { animation: faint-anim 1s forwards; }
+.player-turn-glow { animation: panel-glow-player 2s infinite; }
+.opponent-turn-glow { animation: panel-glow-opponent 2s infinite; }
+.log-message { animation: log-appear 0.5s ease forwards; }
+
+#battle-scene .team-icon { width: 48px; height: 48px; background-color: rgba(0,0,0,0.3); border: 2px solid #4b5563; border-radius: 50%; background-size: 90%; background-position: center; background-repeat: no-repeat; opacity: 0.7; transition: all 0.2s; }
+#battle-scene .team-icon.active { opacity: 1; border-color: #3b82f6; transform: scale(1.1); }
+#battle-scene .team-icon.fainted { filter: grayscale(100%) brightness(50%); transform: scale(0.9); }
+.battle-log-messages::-webkit-scrollbar { width: 8px; }
+.battle-log-messages::-webkit-scrollbar-track { background: #1f2937; }
+.battle-log-messages::-webkit-scrollbar-thumb { background: #4b5563; }
+
+/* Type colors */
+.type-grass { background-color: #78C850; } .type-fire { background-color: #F08030; } .type-water { background-color: #6890F0; } .type-bug { background-color: #A8B820; } .type-normal { background-color: #A8A878; } .type-poison { background-color: #A040A0; } .type-electric { background-color: #F8D030; } .type-ground { background-color: #E0C068; } .type-fairy { background-color: #EE99AC; } .type-fighting { background-color: #C03028; } .type-psychic { background-color: #F85888; } .type-rock { background-color: #B8A038; } .type-ghost { background-color: #705898; } .type-ice { background-color: #98D8D8; } .type-dragon { background-color: #7038F8; } .type-dark { background-color: #705848; } .type-steel { background-color: #B8B8D0; } .type-flying { background-color: #A890F0; }
