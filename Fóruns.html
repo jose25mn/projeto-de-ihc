@@ -9,9 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-image: url("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"); background-color: #1a202c; background-size: cover; background-position: center; background-attachment: fixed; }
+        .panel-bg { background-color: rgba(10, 10, 20, 0.85); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.75rem; }
+        .forum-row:hover { background-color: rgba(30, 41, 59, 0.7); }
+    </style>
 </head>
-<body class="text-white page-smogon">
+<body class="text-white">
     <div class="flex flex-col min-h-screen">
         <header class="bg-gray-900 bg-opacity-70 border-b border-gray-700/50 shadow-lg sticky top-0 z-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,8 +24,8 @@
                     <nav class="hidden md:flex items-center space-x-1 bg-gray-800/60 p-1 rounded-lg">
                         <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Home</a>
                         <a href="play.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Play</a>
-                        <a href="strategy.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Pokédex</a>
-                        <a href="Smogon.html" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold"><i class="fas fa-university mr-2"></i>Smogon</a>
+                        <a href="pokedex.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Pokédex</a>
+                        <a href="smogon.html" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold"><i class="fas fa-university mr-2"></i>Smogon</a>
                     </nav>
                     <div class="flex items-center space-x-3"><a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-bold">Login</a><button class="text-gray-300 hover:text-white"><i class="fas fa-volume-up text-xl"></i></button></div>
                 </div>
@@ -56,6 +60,5 @@
         
         <footer class="mt-auto py-6 bg-gray-900 bg-opacity-60"><div class="container mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-300"><div class="flex justify-center"><a href="#" class="hover:text-white transition-colors">Rules</a><span class="mx-2">|</span><a href="#" class="hover:text-white transition-colors">Credits</a><span class="mx-2">|</span><a href="#" class="hover:text-white transition-colors">GitHub</a></div></div></footer>
     </div>
-<script src="scripts.js" defer></script>
 </body>
 </html>
