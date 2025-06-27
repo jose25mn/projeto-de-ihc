@@ -15,7 +15,6 @@
             a.appendChild(r);
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +22,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --header-height: 5rem; /* 80px, que é o h-20 do seu header */
+        }
         body {
             font-family: 'Roboto', sans-serif;
             background-image: url("fundo2.jpg");
@@ -30,6 +32,8 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            /* **AJUSTE PRINCIPAL**: Adiciona espaço no topo para o header fixo */
+            padding-top: var(--header-height);
         }
         .panel-bg {
             background-color: rgba(10, 10, 20, 0.8);
@@ -53,8 +57,8 @@
         .team-icon {
             width: 32px;
             height: 32px;
-            background-color: #374151; /* gray-700 */
-            border: 1px solid #4b5563; /* gray-600 */
+            background-color: #374151;
+            border: 1px solid #4b5563;
             border-radius: 50%;
             background-size: cover;
             image-rendering: pixelated;
@@ -74,7 +78,7 @@
 
     <div class="flex flex-col min-h-screen">
 
-        <header class="bg-gray-900 bg-opacity-80 border-b border-gray-700/50 shadow-lg sticky top-0 z-50 backdrop-filter backdrop-blur-md">
+        <header class="bg-gray-900 bg-opacity-80 border-b border-gray-700/50 shadow-lg fixed top-0 left-0 right-0 z-50 backdrop-filter backdrop-blur-md">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
                     <div class="flex-shrink-0">
@@ -95,7 +99,7 @@
                     </div>
                 </div>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden">
+            <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95 backdrop-blur-md border-t border-gray-700/50">
                 <nav class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
                     <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Home</a>
                     <a href="pokedex.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Pokédex</a>
@@ -228,7 +232,7 @@
         </footer>
     </div>
 
-    <div id="team-selection-modal" class="fixed inset-0 z-50 items-center justify-center hidden">
+    <div id="team-selection-modal" class="fixed inset-0 z-[100] items-center justify-center hidden">
         <div class="panel-bg p-6 rounded-lg shadow-2xl w-full max-w-2xl mx-4">
             <div class="flex justify-between items-center border-b border-gray-700 pb-3 mb-4">
                 <h2 class="text-2xl font-bold">Select Your Team</h2>
@@ -239,16 +243,15 @@
     </div>
 
     <script>
+        // Todo o seu JavaScript permanece igual
         document.addEventListener('DOMContentLoaded', () => {
-            // --- MENU MOBILE ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
 
-            // --- CÓDIGO DO MODAL E LÓGICA DA PÁGINA (sem alterações) ---
+            // ... (resto do seu script original)
             const formatSelect = document.getElementById('format-select');
             const battleBtn = document.getElementById('battle-btn');
             const battlePrompt = document.getElementById('battle-prompt');
@@ -259,18 +262,9 @@
             const teamsContainer = document.getElementById('teams-container');
 
             const userTeams = [
-                {
-                    name: 'Sun Team (OU)',
-                    pokemons: ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/994.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/892.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/985.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/243.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png']
-                },
-                {
-                    name: 'Rain Stall (Ubers)',
-                    pokemons: ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/249.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/382.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/245.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/488.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/212.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/242.png']
-                },
-                {
-                    name: 'VGC Special Attackers',
-                    pokemons: ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/905.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1008.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/876.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/890.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/475.png']
-                }
+                { name: 'Sun Team (OU)', pokemons: ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/994.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/892.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/985.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/243.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png'] },
+                { name: 'Rain Stall (Ubers)', pokemons: ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/249.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/382.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/245.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/488.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/212.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/242.png'] },
+                { name: 'VGC Special Attackers', pokemons: ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/905.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1008.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/876.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/890.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/475.png'] }
             ];
 
             let selectedTeam = null;
@@ -292,7 +286,6 @@
             function updateTeamDisplay() {
                 teamDisplay.innerHTML = '';
                 const iconsToShow = selectedTeam ? selectedTeam.pokemons : Array(6).fill(null);
-                
                 iconsToShow.forEach(spriteUrl => {
                     const iconDiv = document.createElement('div');
                     iconDiv.className = 'team-icon';
@@ -304,55 +297,34 @@
                 });
             }
 
-            function openModal() {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-            }
-
-            function closeModal() {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }
+            function openModal() { modal.classList.remove('hidden'); modal.classList.add('flex'); }
+            function closeModal() { modal.classList.add('hidden'); modal.classList.remove('flex'); }
 
             function populateTeamsModal() {
                 teamsContainer.innerHTML = '';
                 userTeams.forEach(team => {
                     const teamCard = document.createElement('div');
                     teamCard.className = 'p-4 bg-gray-900/50 rounded-lg cursor-pointer hover:bg-blue-600/30 transition-colors';
-                    
                     let iconsHTML = team.pokemons.map(url => `<img src="${url}" class="inline-block h-10 w-10" style="image-rendering: pixelated;">`).join('');
-
                     teamCard.innerHTML = `<h3 class="font-bold text-lg mb-2">${team.name}</h3><div class="flex space-x-1">${iconsHTML}</div>`;
-
                     teamCard.addEventListener('click', () => {
                         selectedTeam = team;
                         updateTeamDisplay();
                         closeModal();
                         battleBtn.textContent = `Battle with ${team.name}!`;
                     });
-
                     teamsContainer.appendChild(teamCard);
                 });
             }
 
             formatSelect.addEventListener('change', updateBattleUI);
-
             battleBtn.addEventListener('click', (event) => {
                 const selectedFormat = formatSelect.value;
                 const needsTeam = !selectedFormat.toLowerCase().includes('random');
-
-                if (needsTeam && !selectedTeam) {
-                    event.preventDefault();
-                    openModal();
-                } 
+                if (needsTeam && !selectedTeam) { event.preventDefault(); openModal(); }
             });
-
             closeModalBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    closeModal();
-                }
-            });
+            modal.addEventListener('click', (e) => { if (e.target === modal) { closeModal(); } });
 
             updateBattleUI();
             populateTeamsModal();
