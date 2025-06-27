@@ -17,9 +17,7 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -66,7 +64,6 @@
         .chat-messages::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 10px; }
         .chat-messages::-webkit-scrollbar-thumb:hover { background: #6b7280; }
 
-        /* Estilos para o Modal de Seleção de Time */
         #team-selection-modal {
             background-color: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(8px);
@@ -77,68 +74,78 @@
 
     <div class="flex flex-col min-h-screen">
 
-                <header class="bg-gray-900 bg-opacity-70 border-b border-gray-700/50 shadow-lg sticky top-0 z-50">
+        <header class="bg-gray-900 bg-opacity-80 border-b border-gray-700/50 shadow-lg sticky top-0 z-50 backdrop-filter backdrop-blur-md">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
-                    <div class="flex-shrink-0 flex items-center">
+                    <div class="flex-shrink-0">
                         <a href="index.html"><img class="h-12" src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x50/1a202c/ffffff?text=Logo';"></a>
                     </div>
                     <nav class="hidden md:flex items-center space-x-1 bg-gray-800/60 p-1 rounded-lg">
                         <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Home</a>
                         <a href="pokedex.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Pokédex</a>
-                        <a href="Smogon.html"  class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Smogon</a>
+                        <a href="Smogon.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Smogon</a>
                     </nav>
-                    <div class="flex items-center space-x-3">
+                     <div class="hidden md:flex items-center">
                         <a href="play.html" class="bg-blue-600 hover:bg-green-700 text-white font-bold px-5 py-2 rounded-md text-sm transition-colors">Play</a>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
                     </div>
                 </div>
             </div>
+            <div id="mobile-menu" class="hidden md:hidden">
+                <nav class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                    <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                    <a href="pokedex.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Pokédex</a>
+                    <a href="Smogon.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Smogon</a>
+                    <a href="play.html" class="bg-blue-600 hover:bg-green-700 text-white font-bold block px-3 py-3 mt-2 rounded-md text-base text-center transition-colors">Play</a>
+                </nav>
+            </div>
         </header>
 
-        <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
 
-                <div class="lg:col-span-1 space-y-5">
+                <div class="lg:col-span-1 space-y-5 order-2 lg:order-1">
                     <div class="panel-bg p-5 shadow-2xl">
                         <h3 class="text-lg font-bold mb-3">Format</h3>
                         <select id="format-select" class="w-full bg-gray-800 border border-gray-600 rounded-md p-3 text-lg font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <optgroup label="[Gen 9] Random Battle">
-                                <option>[Gen 9] Random Battle</option>
-                                <option>[Gen 9] Random Battle Mayhem</option>
-                                <option>[Gen 9] Unrated Random Battle</option>
-                                <option>[Gen 9] Monotype Random Battle</option>
-                            </optgroup>
-                            <optgroup label="[Gen 9] Singles">
-                                <option>[Gen 9] OU</option>
-                                <option>[Gen 9] Ubers</option>
-                                <option>[Gen 9] UU</option>
-                                <option>[Gen 9] RU</option>
-                                <option>[Gen 9] NU</option>
-                                <option>[Gen 9] PU</option>
-                                <option>[Gen 9] Monotype</option>
-                            </optgroup>
-                            <optgroup label="[Gen 9] Doubles">
-                                <option>[Gen 9] Doubles OU</option>
-                                <option>[Gen 9] Doubles Ubers</option>
-                                <option>[Gen 9] VGC 2024</option>
-                            </optgroup>
-                             <optgroup label="Other Tiers">
-                                <option>National Dex</option>
-                                <option>Almost Any Ability</option>
-                            </optgroup>
+                             <optgroup label="[Gen 9] Random Battle">
+                                 <option>[Gen 9] Random Battle</option>
+                                 <option>[Gen 9] Random Battle Mayhem</option>
+                                 <option>[Gen 9] Unrated Random Battle</option>
+                                 <option>[Gen 9] Monotype Random Battle</option>
+                             </optgroup>
+                             <optgroup label="[Gen 9] Singles">
+                                 <option>[Gen 9] OU</option>
+                                 <option>[Gen 9] Ubers</option>
+                                 <option>[Gen 9] UU</option>
+                                 <option>[Gen 9] RU</option>
+                                 <option>[Gen 9] NU</option>
+                                 <option>[Gen 9] PU</option>
+                                 <option>[Gen 9] Monotype</option>
+                             </optgroup>
+                             <optgroup label="[Gen 9] Doubles">
+                                 <option>[Gen 9] Doubles OU</option>
+                                 <option>[Gen 9] Doubles Ubers</option>
+                                 <option>[Gen 9] VGC 2024</option>
+                             </optgroup>
+                              <optgroup label="Other Tiers">
+                                 <option>National Dex</option>
+                                 <option>Almost Any Ability</option>
+                             </optgroup>
                         </select>
                         <div id="team-preview" class="my-4 p-3 bg-black/30 rounded-md">
                             <p class="text-sm text-gray-300 mb-2">Team</p>
-                            <div id="team-display" class="flex space-x-2">
-                            </div>
+                            <div id="team-display" class="flex space-x-2"></div>
                         </div>
                         <label class="flex items-center space-x-3 text-gray-300 cursor-pointer">
                             <input type="checkbox" class="h-5 w-5 bg-gray-700 border-gray-500 rounded text-blue-500 focus:ring-blue-500">
                             <span>Don't allow spectators</span>
                         </label>
-                        <a id="battle-btn" href="battle.html" class="block text-center text-xl bg-red-600 hover:bg-red-700 w-full mt-4 btn-action">
-                            Battle!
-                        </a>
+                        <a id="battle-btn" href="battle.html" class="block text-center text-xl bg-red-600 hover:bg-red-700 w-full mt-4 btn-action">Battle!</a>
                         <p id="battle-prompt" class="text-center text-sm text-gray-400 mt-2">Find a random opponent</p>
                     </div>
 
@@ -157,8 +164,8 @@
                     </button>
                 </div>
 
-                <div class="lg:col-span-2 space-y-6">
-                    <div class="grid grid-cols-2 gap-6">
+                <div class="lg:col-span-2 space-y-6 order-1 lg:order-2">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="panel-bg p-5 shadow-2xl flex items-center justify-center space-x-4">
                              <i class="fas fa-users text-3xl text-gray-400"></i>
                              <div>
@@ -183,48 +190,21 @@
                     </div>
                 </div>
 
-                <div class="lg:col-span-1 panel-bg p-4 shadow-2xl flex flex-col h-[65vh] max-h-[700px]">
+                <div class="lg:col-span-1 panel-bg p-4 shadow-2xl flex flex-col h-[65vh] max-h-[500px] lg:max-h-[700px] order-3">
                     <h3 class="text-xl font-bold border-b border-gray-700 pb-2 mb-3 flex items-center">
                         <i class="fas fa-comments text-blue-400 mr-3"></i> Lobby Chat
                     </h3>
                     <div class="chat-messages flex-grow space-y-3 overflow-y-auto pr-2 text-sm">
                         <p class="text-gray-400">Welcome to the Lobby!</p>
-                         <div>
-                             <span class="font-bold text-green-400">~System:</span>
-                             <span class="text-gray-300">User <strong class="text-yellow-400">AshKetchum</strong> joined.</span>
-                         </div>
-                         <div>
-                             <span class="font-bold text-purple-400">@Admin:</span>
-                             <span class="text-gray-300">Please remember to be respectful to all users.</span>
-                         </div>
-                         <div>
-                             <span class="font-bold text-blue-400">Misty:</span>
-                             <span class="text-gray-300">Anyone up for a water-type battle?</span>
-                         </div>
-                         <div>
-                             <span class="font-bold text-orange-400">Brock:</span>
-                             <span class="text-gray-300">I'm looking for a rock-solid opponent!</span>
-                         </div>
-                         <div>
-                             <span class="font-bold text-yellow-400">AshKetchum:</span>
-                             <span class="text-gray-300">Pikachu, I choose you! Let's battle!</span>
-                         </div>
-                         <div>
-                             <span class="font-bold text-pink-400">Jessie:</span>
-                             <span class="text-gray-300">Prepare for trouble!</span>
-                         </div>
-                          <div>
-                             <span class="font-bold text-indigo-400">James:</span>
-                             <span class="text-gray-300">And make it double!</span>
-                         </div>
-                         <div>
-                             <span class="font-bold text-gray-200">Meowth:</span>
-                             <span class="text-gray-300">Meowth, that's right!</span>
-                         </div>
-                          <div>
-                             <span class="font-bold text-green-400">~System:</span>
-                             <span class="text-gray-300">User <strong class="text-blue-400">Misty</strong> started a battle with <strong class="text-yellow-400">AshKetchum</strong>.</span>
-                         </div>
+                         <div><span class="font-bold text-green-400">~System:</span> <span class="text-gray-300">User <strong class="text-yellow-400">AshKetchum</strong> joined.</span></div>
+                         <div><span class="font-bold text-purple-400">@Admin:</span> <span class="text-gray-300">Please remember to be respectful to all users.</span></div>
+                         <div><span class="font-bold text-blue-400">Misty:</span> <span class="text-gray-300">Anyone up for a water-type battle?</span></div>
+                         <div><span class="font-bold text-orange-400">Brock:</span> <span class="text-gray-300">I'm looking for a rock-solid opponent!</span></div>
+                         <div><span class="font-bold text-yellow-400">AshKetchum:</span> <span class="text-gray-300">Pikachu, I choose you! Let's battle!</span></div>
+                         <div><span class="font-bold text-pink-400">Jessie:</span> <span class="text-gray-300">Prepare for trouble!</span></div>
+                          <div><span class="font-bold text-indigo-400">James:</span> <span class="text-gray-300">And make it double!</span></div>
+                         <div><span class="font-bold text-gray-200">Meowth:</span> <span class="text-gray-300">Meowth, that's right!</span></div>
+                          <div><span class="font-bold text-green-400">~System:</span> <span class="text-gray-300">User <strong class="text-blue-400">Misty</strong> started a battle with <strong class="text-yellow-400">AshKetchum</strong>.</span></div>
                     </div>
                     <div class="mt-4 flex space-x-2">
                         <input type="text" placeholder="Fale no chat..." class="flex-grow bg-gray-900 border border-gray-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
@@ -236,14 +216,14 @@
 
         <footer class="mt-auto py-4">
              <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-300">
-                 <div class="flex justify-start space-x-4">
-                     <a href="https://play.pokemonshowdown.com/pokedex" target="_blank" class="hover:text-white transition-colors">Pokédex</a>
-                     <a href="https://replay.pokemonshowdown.com/" target="_blank" class="hover:text-white transition-colors">Replay</a>
-                     <a href="https://pokemonshowdown.com/rules" target="_blank" class="hover:text-white transition-colors">Rules</a>
-                     <a href="https://pokemonshowdown.com/credits" target="_blank" class="hover:text-white transition-colors">Credits</a>
-                     <a href="https://github.com/smogon/pokemon-showdown" target="_blank" class="hover:text-white transition-colors">GitHub</a>
-                     <a href="https://pokemonshowdown.com/privacy" target="_blank" class="hover:text-white transition-colors">Privacy Policy</a>
-                 </div>
+                  <div class="flex flex-wrap justify-center sm:justify-start space-x-4">
+                       <a href="https://play.pokemonshowdown.com/pokedex" target="_blank" class="hover:text-white transition-colors">Pokédex</a>
+                       <a href="https://replay.pokemonshowdown.com/" target="_blank" class="hover:text-white transition-colors">Replay</a>
+                       <a href="https://pokemonshowdown.com/rules" target="_blank" class="hover:text-white transition-colors">Rules</a>
+                       <a href="https://pokemonshowdown.com/credits" target="_blank" class="hover:text-white transition-colors">Credits</a>
+                       <a href="https://github.com/smogon/pokemon-showdown" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                       <a href="https://pokemonshowdown.com/privacy" target="_blank" class="hover:text-white transition-colors">Privacy Policy</a>
+                  </div>
              </div>
         </footer>
     </div>
@@ -254,14 +234,21 @@
                 <h2 class="text-2xl font-bold">Select Your Team</h2>
                 <button id="close-modal-btn" class="text-gray-400 hover:text-white text-2xl">&times;</button>
             </div>
-            <div id="teams-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto">
-                </div>
+            <div id="teams-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto"></div>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- ELEMENTOS DO DOM ---
+            // --- MENU MOBILE ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- CÓDIGO DO MODAL E LÓGICA DA PÁGINA (sem alterações) ---
             const formatSelect = document.getElementById('format-select');
             const battleBtn = document.getElementById('battle-btn');
             const battlePrompt = document.getElementById('battle-prompt');
@@ -271,66 +258,39 @@
             const closeModalBtn = document.getElementById('close-modal-btn');
             const teamsContainer = document.getElementById('teams-container');
 
-            // --- DADOS DE EXEMPLO (TIMES DO USUÁRIO) ---
-            // Usamos sprites da PokeAPI como exemplo.
             const userTeams = [
                 {
                     name: 'Sun Team (OU)',
-                    pokemons: [
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/994.png', // Iron Moth
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png', // Umbreon
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/892.png', // Urshifu
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/985.png', // Roaring Moon
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/243.png', // Raikou
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png'  // Dragonite
-                    ]
+                    pokemons: ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/994.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/892.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/985.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/243.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png']
                 },
                 {
                     name: 'Rain Stall (Ubers)',
-                    pokemons: [
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/249.png', // Lugia
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/382.png', // Kyogre
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/245.png', // Suicune
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/488.png', // Cresselia
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/212.png', // Scizor
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/242.png'  // Blissey
-                    ]
+                    pokemons: ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/249.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/382.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/245.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/488.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/212.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/242.png']
                 },
                 {
                     name: 'VGC Special Attackers',
-                    pokemons: [
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/905.png', // Enamorus
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1008.png',// Miraidon
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png',   // Charizard
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/876.png', // Indeedee-f
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/890.png', // Eternatus
-                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/475.png'  // Gallade
-                    ]
+                    pokemons: ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/905.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1008.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/876.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/890.png', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/475.png']
                 }
             ];
 
             let selectedTeam = null;
 
-            // --- FUNÇÕES ---
-
-            // Atualiza o texto e a visibilidade da área de time com base no formato
             function updateBattleUI() {
                 const selectedFormat = formatSelect.value;
                 if (selectedFormat.toLowerCase().includes('random')) {
                     battlePrompt.textContent = 'Find a random opponent';
                     teamPreview.classList.add('hidden');
-                    selectedTeam = null; // Limpa a seleção
-                    battleBtn.textContent = 'Battle!'; // Reseta o texto do botão
+                    selectedTeam = null;
+                    battleBtn.textContent = 'Battle!';
                 } else {
                     battlePrompt.textContent = 'Select a team to battle';
                     teamPreview.classList.remove('hidden');
-                    updateTeamDisplay(); // Mostra o time selecionado ou placeholders
+                    updateTeamDisplay();
                 }
             }
             
-            // Renderiza os ícones do time na tela principal
             function updateTeamDisplay() {
-                teamDisplay.innerHTML = ''; // Limpa os ícones atuais
+                teamDisplay.innerHTML = '';
                 const iconsToShow = selectedTeam ? selectedTeam.pokemons : Array(6).fill(null);
                 
                 iconsToShow.forEach(spriteUrl => {
@@ -344,19 +304,16 @@
                 });
             }
 
-            // Abre o Modal
             function openModal() {
                 modal.classList.remove('hidden');
                 modal.classList.add('flex');
             }
 
-            // Fecha o Modal
             function closeModal() {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
             }
 
-            // Popula o modal com os times do usuário
             function populateTeamsModal() {
                 teamsContainer.innerHTML = '';
                 userTeams.forEach(team => {
@@ -365,17 +322,12 @@
                     
                     let iconsHTML = team.pokemons.map(url => `<img src="${url}" class="inline-block h-10 w-10" style="image-rendering: pixelated;">`).join('');
 
-                    teamCard.innerHTML = `
-                        <h3 class="font-bold text-lg mb-2">${team.name}</h3>
-                        <div class="flex space-x-1">${iconsHTML}</div>
-                    `;
+                    teamCard.innerHTML = `<h3 class="font-bold text-lg mb-2">${team.name}</h3><div class="flex space-x-1">${iconsHTML}</div>`;
 
                     teamCard.addEventListener('click', () => {
                         selectedTeam = team;
                         updateTeamDisplay();
                         closeModal();
-                        console.log(`Team "${team.name}" selected! Ready to battle.`);
-                        // Altera o texto do botão para confirmar a seleção
                         battleBtn.textContent = `Battle with ${team.name}!`;
                     });
 
@@ -383,36 +335,25 @@
                 });
             }
 
-
-            // --- EVENT LISTENERS ---
-
-            // Quando o formato de batalha muda
             formatSelect.addEventListener('change', updateBattleUI);
 
-            // Quando o botão de batalha é clicado
             battleBtn.addEventListener('click', (event) => {
                 const selectedFormat = formatSelect.value;
                 const needsTeam = !selectedFormat.toLowerCase().includes('random');
 
-                // Se for necessário um time, mas nenhum foi selecionado,
-                // impede a navegação e abre o modal.
                 if (needsTeam && !selectedTeam) {
-                    event.preventDefault(); // Impede o link de navegar para battle.html
+                    event.preventDefault();
                     openModal();
                 } 
-                // Caso contrário, permite que o link funcione normalmente, levando para battle.html
             });
 
-            // Para fechar o modal
             closeModalBtn.addEventListener('click', closeModal);
             modal.addEventListener('click', (e) => {
-                // Fecha se clicar fora do conteúdo do modal
                 if (e.target === modal) {
                     closeModal();
                 }
             });
 
-            // --- INICIALIZAÇÃO ---
             updateBattleUI();
             populateTeamsModal();
         });
