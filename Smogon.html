@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smogon University | Pokémon Showdown</title>
+
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6434380,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos customizados para aplicar a fonte e o fundo */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url("teste");
+            background-color: #1a202c; /* Cor de fundo alternativa */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Cor de fundo translúcida para os painéis */
+        .panel-bg {
+            background-color: rgba(10, 10, 20, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+        }
+        
+        /* Efeito de hover para cards */
+        .info-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border-color: rgba(0, 150, 255, 0.5);
+        }
+
+        /* Estilo para os botões de ação */
+        .action-button {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .action-button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <div class="flex flex-col min-h-screen">
+
+        <header class="bg-gray-900 bg-opacity-70 border-b border-gray-700/50 shadow-lg sticky top-0 z-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html"><img class="h-12" src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x50/1a202c/ffffff?text=Logo';"></a>
+                    </div>
+                    <nav class="hidden md:flex items-center space-x-1 bg-gray-800/60 p-1 rounded-lg">
+                        <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="play.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Play</a>
+                        <a href="pokedex.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Pokédex</a>
+                        <a href="smogon.html" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold"><i class="fas fa-university mr-2"></i>Smogon</a>
+                    </nav>
+                    <div class="flex items-center space-x-3">
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors">Login</a>
+                        <button class="text-gray-300 hover:text-white"><i class="fas fa-volume-up text-xl"></i></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            
+            <div class="text-center mb-12">
+                <h1 class="text-5xl md:text-6xl font-black tracking-tighter mb-3" style="text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);">Smogon University</h1>
+                <p class="text-lg text-gray-200 mb-8 max-w-3xl mx-auto">O epicentro do Pokémon competitivo. Encontre análises, artigos e discussões aprofundadas.</p>
+                <div class="max-w-2xl mx-auto">
+                    <div class="relative">
+                        <input type="search" placeholder="Buscar análise de Pokémon (ex: Glimmora)" class="w-full bg-gray-900/80 border-2 border-gray-600 rounded-full py-4 pl-6 pr-14 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                        <button class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">
+                            <i class="fas fa-search text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <div class="lg:col-span-2 space-y-8">
+                    
+                    <div class="panel-bg p-6">
+                        <h2 class="text-2xl font-bold border-b border-gray-700 pb-3 mb-5">Análises em Destaque</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="info-card bg-gray-800/50 rounded-lg p-4 flex items-center space-x-4">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png" alt="Tyranitar" class="h-20 w-20">
+                                <div>
+                                    <h3 class="text-xl font-bold">Tyranitar</h3>
+                                    <p class="text-gray-400 text-sm mb-2">[Gen 9] OverUsed (OU)</p>
+                                    <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Ver análise &rarr;</a>
+                                </div>
+                            </div>
+                            <div class="info-card bg-gray-800/50 rounded-lg p-4 flex items-center space-x-4">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png" alt="Dragonite" class="h-20 w-20">
+                                <div>
+                                    <h3 class="text-xl font-bold">Dragonite</h3>
+                                    <p class="text-gray-400 text-sm mb-2">[Gen 9] OverUsed (OU)</p>
+                                    <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Ver análise &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-bg p-6">
+                        <h2 class="text-2xl font-bold border-b border-gray-700 pb-3 mb-5">Artigos e Notícias</h2>
+                        <div class="space-y-5">
+                            <div class="info-card bg-gray-800/50 rounded-lg p-4">
+                                <h3 class="text-xl font-bold mb-1">VR Council: Votos de Viabilidade em [Gen 9] OU</h3>
+                                <p class="text-gray-300 mb-2">O conselho de OU se reuniu para discutir o impacto de novos e antigos Pokémon no metagame atual. Veja as mudanças...</p>
+                                <span class="text-sm text-gray-500">Postado por: <span class="font-semibold text-gray-400">Smogon Staff</span> - 2 dias atrás</span>
+                            </div>
+                            <div class="info-card bg-gray-800/50 rounded-lg p-4">
+                                <h3 class="text-xl font-bold mb-1">Análise do Metagame: O Despertar dos Tipos 'Steel'</h3>
+                                <p class="text-gray-300 mb-2">Uma análise aprofundada sobre como Pokémon do tipo 'Steel' como Kingambit e Gholdengo estão definindo o ritmo do jogo.</p>
+                                <span class="text-sm text-gray-500">Postado por: <span class="font-semibold text-gray-400">Competitor Analysis</span> - 1 semana atrás</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1 space-y-8">
+                    <div class="panel-bg p-6">
+                        <h2 class="text-2xl font-bold border-b border-gray-700 pb-3 mb-5">Recursos Competitivos</h2>
+                        <div class="space-y-4">
+                            <a href="#" class="action-button block text-center font-bold text-lg bg-blue-600 hover:bg-blue-700 p-4 rounded-lg">
+                                <i class="fas fa-book-reader mr-2"></i> Strategy Pokédex
+                            </a>
+                            <a href="#" class="action-button block text-center font-bold text-lg bg-green-600 hover:bg-green-700 p-4 rounded-lg">
+                                <i class="fas fa-sitemap mr-2"></i> Fóruns de Discussão
+                            </a>
+                            <a href="#" class="action-button block text-center font-bold text-lg bg-purple-600 hover:bg-purple-700 p-4 rounded-lg">
+                                <i class="fas fa-trophy mr-2"></i> Tiers Competitivos
+                            </a>
+                            <a href="#" class="action-button block text-center font-bold text-lg bg-gray-600 hover:bg-gray-700 p-4 rounded-lg">
+                                <i class="fas fa-pen-alt mr-2"></i> Artigos e Análises
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-bg p-6 text-center">
+                        <h3 class="text-xl font-bold mb-2">Sobre a Smogon</h3>
+                        <p class="text-gray-300">A Smogon University é uma comunidade Pokémon focada em batalhas competitivas. Desde 2004, oferecemos artigos, análises e um espaço para jogadores de todos os níveis.</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="mt-auto py-6 bg-gray-900 bg-opacity-60">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-300">
+                <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                    <div class="flex space-x-4 mb-4 md:mb-0">
+                        <a href="#" class="hover:text-white transition-colors">Rules</a>
+                        <a href="#" class="hover:text-white transition-colors">Credits</a>
+                        <a href="#" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    </div>
+                    <span class="text-xs">Pokémon © 2002-2024 Pokémon. © 1995-2024 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo.</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
