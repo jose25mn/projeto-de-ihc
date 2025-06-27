@@ -130,15 +130,15 @@
                         <div id="team-preview" class="my-4 p-3 bg-black/30 rounded-md">
                             <p class="text-sm text-gray-300 mb-2">Team</p>
                             <div id="team-display" class="flex space-x-2">
-                                </div>
+                            </div>
                         </div>
                         <label class="flex items-center space-x-3 text-gray-300 cursor-pointer">
                             <input type="checkbox" class="h-5 w-5 bg-gray-700 border-gray-500 rounded text-blue-500 focus:ring-blue-500">
                             <span>Don't allow spectators</span>
                         </label>
-                        <button id="battle-btn" href="battle.html" class="text-center text-xl bg-red-600 hover:bg-red-700 w-full mt-4 btn-action">
+                        <a id="battle-btn" href="battle.html" class="block text-center text-xl bg-red-600 hover:bg-red-700 w-full mt-4 btn-action">
                             Battle!
-                        </button>
+                        </a>
                         <p id="battle-prompt" class="text-center text-sm text-gray-400 mt-2">Find a random opponent</p>
                     </div>
 
@@ -320,6 +320,7 @@
                     battlePrompt.textContent = 'Find a random opponent';
                     teamPreview.classList.add('hidden');
                     selectedTeam = null; // Limpa a seleção
+                    battleBtn.textContent = 'Battle!'; // Reseta o texto do botão
                 } else {
                     battlePrompt.textContent = 'Select a team to battle';
                     teamPreview.classList.remove('hidden');
@@ -374,7 +375,7 @@
                         updateTeamDisplay();
                         closeModal();
                         console.log(`Team "${team.name}" selected! Ready to battle.`);
-                        // Aqui você poderia, por exemplo, mudar o texto do botão para "Start Battle!"
+                        // Altera o texto do botão para confirmar a seleção
                         battleBtn.textContent = `Battle with ${team.name}!`;
                     });
 
@@ -389,19 +390,17 @@
             formatSelect.addEventListener('change', updateBattleUI);
 
             // Quando o botão de batalha é clicado
-            battleBtn.addEventListener('click', () => {
+            battleBtn.addEventListener('click', (event) => {
                 const selectedFormat = formatSelect.value;
-                if (selectedFormat.toLowerCase().includes('random')) {
-                    console.log('Finding a random battle...');
-                    // Lógica para iniciar batalha aleatória
-                } else {
-                    if (selectedTeam) {
-                        console.log(`Starting battle with team "${selectedTeam.name}"!`);
-                        // Lógica para iniciar batalha com o time selecionado
-                    } else {
-                        openModal(); // Se nenhum time foi escolhido ainda, abre o modal
-                    }
-                }
+                const needsTeam = !selectedFormat.toLowerCase().includes('random');
+
+                // Se for necessário um time, mas nenhum foi selecionado,
+                // impede a navegação e abre o modal.
+                if (needsTeam && !selectedTeam) {
+                    event.preventDefault(); // Impede o link de navegar para battle.html
+                    openModal();
+                } 
+                // Caso contrário, permite que o link funcione normalmente, levando para battle.html
             });
 
             // Para fechar o modal
