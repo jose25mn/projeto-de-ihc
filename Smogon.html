@@ -28,11 +28,23 @@
         /* Estilos customizados para aplicar a fonte e o fundo */
         body {
             font-family: 'Roboto', sans-serif;
+            background-color: #1a202c; /* Cor de fundo sólida */
+        }
+        
+        /* Pseudo-elemento para o fundo com opacidade */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background-image: url("assets/imagem 3.jpg");
-            background-color: #1a202c; /* Cor de fundo alternativa */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            filter: opacity(0.3); /* Controle a opacidade aqui (ex: 0.3 para 30%) */
+            z-index: -1; /* Coloca o fundo atrás do conteúdo */
         }
 
         /* Cor de fundo translúcida para os painéis */
@@ -78,7 +90,7 @@
                     </nav>
  <div class="flex items-center space-x-3">
                         <a href="play.html" class="bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-2 rounded-md text-sm transition-colors">Play</a>
-                    </div>                </div>
+                    </div>                   </div>
             </div>
         </header>
 
