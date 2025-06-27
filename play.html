@@ -26,6 +26,9 @@
         :root {
             --header-height: 5rem; /* 80px, que é o h-20 do seu header */
         }
+        html {
+            height: 100%;
+        }
         body {
             font-family: 'Roboto', sans-serif;
             background-image: url("fundo2.jpg");
@@ -35,10 +38,6 @@
             background-attachment: fixed;
             /* Garante o espaço para o header fixo */
             padding-top: var(--header-height);
-        }
-        /* Classe adicionada via JS para empurrar o conteúdo quando o menu mobile abre */
-        body.mobile-menu-open {
-            /* A altura do menu será adicionada aqui via JS */
         }
         .panel-bg {
             background-color: rgba(10, 10, 20, 0.8);
@@ -84,162 +83,160 @@
         }
     </style>
 </head>
-<body class="text-white">
+<body class="text-white flex flex-col min-h-screen">
 
-    <div>
-        <header class="bg-gray-900 bg-opacity-80 border-b border-gray-700/50 shadow-lg fixed top-0 left-0 right-0 z-50 backdrop-filter backdrop-blur-md">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-20">
-                    <div class="flex-shrink-0">
-                        <a href="index.html"><img class="h-12" src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x50/1a202c/ffffff?text=Logo';"></a>
-                    </div>
-                    <nav class="hidden md:flex items-center space-x-1 bg-gray-800/60 p-1 rounded-lg">
-                        <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Home</a>
-                        <a href="pokedex.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Pokédex</a>
-                        <a href="Smogon.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Smogon</a>
-                    </nav>
-                     <div class="hidden md:flex items-center">
-                        <a href="play.html" class="bg-blue-600 hover:bg-green-700 text-white font-bold px-5 py-2 rounded-md text-sm transition-colors">Play</a>
-                    </div>
-                    <div class="md:hidden">
-                        <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none p-2">
-                            <i class="fas fa-bars text-2xl"></i>
-                        </button>
-                    </div>
+    <header class="bg-gray-900 bg-opacity-80 border-b border-gray-700/50 shadow-lg fixed top-0 left-0 right-0 z-50 backdrop-filter backdrop-blur-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html"><img class="h-12" src="assets/pokemonshowdownbeta.png" alt="Pokémon Showdown Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x50/1a202c/ffffff?text=Logo';"></a>
                 </div>
-            </div>
-            <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95 backdrop-blur-md">
-                <nav class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
-                    <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Home</a>
-                    <a href="pokedex.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Pokédex</a>
-                    <a href="Smogon.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Smogon</a>
-                    <a href="play.html" class="bg-blue-600 hover:bg-green-700 text-white font-bold block px-3 py-3 mt-2 rounded-md text-base text-center transition-colors">Play</a>
+                <nav class="hidden md:flex items-center space-x-1 bg-gray-800/60 p-1 rounded-lg">
+                    <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="pokedex.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Pokédex</a>
+                    <a href="Smogon.html" class="text-gray-300 hover:bg-gray-700/50 px-4 py-2 rounded-md text-sm font-medium">Smogon</a>
                 </nav>
+                 <div class="hidden md:flex items-center">
+                    <a href="play.html" class="bg-blue-600 hover:bg-green-700 text-white font-bold px-5 py-2 rounded-md text-sm transition-colors">Play</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
-        </header>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95 backdrop-blur-md">
+            <nav class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="pokedex.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Pokédex</a>
+                <a href="Smogon.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Smogon</a>
+                <a href="play.html" class="bg-blue-600 hover:bg-green-700 text-white font-bold block px-3 py-3 mt-2 rounded-md text-base text-center transition-colors">Play</a>
+            </nav>
+        </div>
+    </header>
 
-        <main id="main-content" class="container mx-auto px-4 sm:px-6 lg:px-8 py-6" style="transition: padding-top 0.3s ease-in-out;">
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+    <main id="main-content" class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow" style="transition: padding-top 0.3s ease-in-out;">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 h-full">
 
-                <div class="lg:col-span-1 space-y-5 order-2 lg:order-1">
-                    <div class="panel-bg p-5 shadow-2xl">
-                        <h3 class="text-lg font-bold mb-3">Format</h3>
-                        <select id="format-select" class="w-full bg-gray-800 border border-gray-600 rounded-md p-3 text-lg font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">
-                             <optgroup label="[Gen 9] Random Battle">
-                                 <option>[Gen 9] Random Battle</option>
-                                 <option>[Gen 9] Random Battle Mayhem</option>
-                                 <option>[Gen 9] Unrated Random Battle</option>
-                                 <option>[Gen 9] Monotype Random Battle</option>
-                             </optgroup>
-                             <optgroup label="[Gen 9] Singles">
-                                 <option>[Gen 9] OU</option>
-                                 <option>[Gen 9] Ubers</option>
-                                 <option>[Gen 9] UU</option>
-                                 <option>[Gen 9] RU</option>
-                                 <option>[Gen 9] NU</option>
-                                 <option>[Gen 9] PU</option>
-                                 <option>[Gen 9] Monotype</option>
-                             </optgroup>
-                             <optgroup label="[Gen 9] Doubles">
-                                 <option>[Gen 9] Doubles OU</option>
-                                 <option>[Gen 9] Doubles Ubers</option>
-                                 <option>[Gen 9] VGC 2024</option>
-                             </optgroup>
-                              <optgroup label="Other Tiers">
-                                 <option>National Dex</option>
-                                 <option>Almost Any Ability</option>
-                             </optgroup>
-                        </select>
-                        <div id="team-preview" class="my-4 p-3 bg-black/30 rounded-md">
-                            <p class="text-sm text-gray-300 mb-2">Team</p>
-                            <div id="team-display" class="flex space-x-2"></div>
-                        </div>
-                        <label class="flex items-center space-x-3 text-gray-300 cursor-pointer">
-                            <input type="checkbox" class="h-5 w-5 bg-gray-700 border-gray-500 rounded text-blue-500 focus:ring-blue-500">
-                            <span>Don't allow spectators</span>
-                        </label>
-                        <a id="battle-btn" href="battle.html" class="block text-center text-xl bg-red-600 hover:bg-red-700 w-full mt-4 btn-action">Battle!</a>
-                        <p id="battle-prompt" class="text-center text-sm text-gray-400 mt-2">Find a random opponent</p>
+            <div class="lg:col-span-1 space-y-5 order-1 lg:order-1">
+                <div class="panel-bg p-5 shadow-2xl">
+                    <h3 class="text-lg font-bold mb-3">Format</h3>
+                    <select id="format-select" class="w-full bg-gray-800 border border-gray-600 rounded-md p-3 text-lg font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">
+                           <optgroup label="[Gen 9] Random Battle">
+                               <option>[Gen 9] Random Battle</option>
+                               <option>[Gen 9] Random Battle Mayhem</option>
+                               <option>[Gen 9] Unrated Random Battle</option>
+                               <option>[Gen 9] Monotype Random Battle</option>
+                           </optgroup>
+                           <optgroup label="[Gen 9] Singles">
+                               <option>[Gen 9] OU</option>
+                               <option>[Gen 9] Ubers</option>
+                               <option>[Gen 9] UU</option>
+                               <option>[Gen 9] RU</option>
+                               <option>[Gen 9] NU</option>
+                               <option>[Gen 9] PU</option>
+                               <option>[Gen 9] Monotype</option>
+                           </optgroup>
+                           <optgroup label="[Gen 9] Doubles">
+                               <option>[Gen 9] Doubles OU</option>
+                               <option>[Gen 9] Doubles Ubers</option>
+                               <option>[Gen 9] VGC 2024</option>
+                           </optgroup>
+                            <optgroup label="Other Tiers">
+                               <option>National Dex</option>
+                               <option>Almost Any Ability</option>
+                           </optgroup>
+                    </select>
+                    <div id="team-preview" class="my-4 p-3 bg-black/30 rounded-md">
+                        <p class="text-sm text-gray-300 mb-2">Team</p>
+                        <div id="team-display" class="flex space-x-2"></div>
                     </div>
-
-                    <button class="btn-action bg-green-600 hover:bg-green-700 w-full">
-                        <div>
-                            <p class="font-bold text-lg">Team Builder</p>
-                            <p class="text-sm text-green-200">Create your Team!</p>
-                        </div>
-                    </button>
-
-                    <button class="btn-action bg-blue-500 hover:bg-blue-600 w-full">
-                        <div>
-                           <p class="font-bold text-lg">Tournaments</p>
-                           <p class="text-sm text-blue-200">Check the current tournaments</p>
-                        </div>
-                    </button>
+                    <label class="flex items-center space-x-3 text-gray-300 cursor-pointer">
+                        <input type="checkbox" class="h-5 w-5 bg-gray-700 border-gray-500 rounded text-blue-500 focus:ring-blue-500">
+                        <span>Don't allow spectators</span>
+                    </label>
+                    <a id="battle-btn" href="battle.html" class="block text-center text-xl bg-red-600 hover:bg-red-700 w-full mt-4 btn-action">Battle!</a>
+                    <p id="battle-prompt" class="text-center text-sm text-gray-400 mt-2">Find a random opponent</p>
                 </div>
 
-                <div class="lg:col-span-2 space-y-6 order-1 lg:order-2">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="panel-bg p-5 shadow-2xl flex items-center justify-center space-x-4">
-                             <i class="fas fa-users text-3xl text-gray-400"></i>
-                             <div>
-                                 <p class="text-2xl font-bold">15000</p>
-                                 <p class="text-gray-300">users online</p>
-                             </div>
-                        </div>
-                        <div class="panel-bg p-5 shadow-2xl flex items-center justify-center space-x-4">
-                             <i class="fas fa-khanda text-3xl text-gray-400"></i>
-                             <div>
-                                 <p class="text-2xl font-bold">2500</p>
-                                 <p class="text-gray-300">active battles</p>
-                             </div>
-                        </div>
+                <button class="btn-action bg-green-600 hover:bg-green-700 w-full">
+                    <div>
+                        <p class="font-bold text-lg">Team Builder</p>
+                        <p class="text-sm text-green-200">Create your Team!</p>
                     </div>
-                    <div class="panel-bg p-5 shadow-2xl h-full">
-                        <h3 class="text-xl font-bold border-b border-gray-700 pb-2 mb-4">News</h3>
-                        <div class="text-gray-300 space-y-3">
-                             <p><span class="font-bold text-blue-300">Happy B-Day PS!</span> - We're celebrating another year of Pokémon battles. Thanks for being part of our community!</p>
-                             <p><span class="font-bold text-green-300">New Feature!</span> - We've added a new replay feature. Check out your past battles from your profile.</p>
-                        </div>
+                </button>
+
+                <button class="btn-action bg-blue-500 hover:bg-blue-600 w-full">
+                    <div>
+                       <p class="font-bold text-lg">Tournaments</p>
+                       <p class="text-sm text-blue-200">Check the current tournaments</p>
+                    </div>
+                </button>
+            </div>
+
+            <div class="lg:col-span-2 space-y-6 order-3 lg:order-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="panel-bg p-5 shadow-2xl flex items-center justify-center space-x-4">
+                            <i class="fas fa-users text-3xl text-gray-400"></i>
+                            <div>
+                                <p class="text-2xl font-bold">15000</p>
+                                <p class="text-gray-300">users online</p>
+                            </div>
+                    </div>
+                    <div class="panel-bg p-5 shadow-2xl flex items-center justify-center space-x-4">
+                            <i class="fas fa-khanda text-3xl text-gray-400"></i>
+                            <div>
+                                <p class="text-2xl font-bold">2500</p>
+                                <p class="text-gray-300">active battles</p>
+                            </div>
                     </div>
                 </div>
-
-                <div class="lg:col-span-1 panel-bg p-4 shadow-2xl flex flex-col h-[65vh] max-h-[500px] lg:max-h-[700px] order-3">
-                    <h3 class="text-xl font-bold border-b border-gray-700 pb-2 mb-3 flex items-center">
-                        <i class="fas fa-comments text-blue-400 mr-3"></i> Lobby Chat
-                    </h3>
-                    <div class="chat-messages flex-grow space-y-3 overflow-y-auto pr-2 text-sm">
-                        <p class="text-gray-400">Welcome to the Lobby!</p>
-                         <div><span class="font-bold text-green-400">~System:</span> <span class="text-gray-300">User <strong class="text-yellow-400">AshKetchum</strong> joined.</span></div>
-                         <div><span class="font-bold text-purple-400">@Admin:</span> <span class="text-gray-300">Please remember to be respectful to all users.</span></div>
-                         <div><span class="font-bold text-blue-400">Misty:</span> <span class="text-gray-300">Anyone up for a water-type battle?</span></div>
-                         <div><span class="font-bold text-orange-400">Brock:</span> <span class="text-gray-300">I'm looking for a rock-solid opponent!</span></div>
-                         <div><span class="font-bold text-yellow-400">AshKetchum:</span> <span class="text-gray-300">Pikachu, I choose you! Let's battle!</span></div>
-                         <div><span class="font-bold text-pink-400">Jessie:</span> <span class="text-gray-300">Prepare for trouble!</span></div>
-                          <div><span class="font-bold text-indigo-400">James:</span> <span class="text-gray-300">And make it double!</span></div>
-                         <div><span class="font-bold text-gray-200">Meowth:</span> <span class="text-gray-300">Meowth, that's right!</span></div>
-                          <div><span class="font-bold text-green-400">~System:</span> <span class="text-gray-300">User <strong class="text-blue-400">Misty</strong> started a battle with <strong class="text-yellow-400">AshKetchum</strong>.</span></div>
-                    </div>
-                    <div class="mt-4 flex space-x-2">
-                        <input type="text" placeholder="Fale no chat..." class="flex-grow bg-gray-900 border border-gray-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
-                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-bold transition-colors">Enviar</button>
+                <div class="panel-bg p-5 shadow-2xl">
+                    <h3 class="text-xl font-bold border-b border-gray-700 pb-2 mb-4">News</h3>
+                    <div class="text-gray-300 space-y-3">
+                            <p><span class="font-bold text-blue-300">Happy B-Day PS!</span> - We're celebrating another year of Pokémon battles. Thanks for being part of our community!</p>
+                            <p><span class="font-bold text-green-300">New Feature!</span> - We've added a new replay feature. Check out your past battles from your profile.</p>
                     </div>
                 </div>
             </div>
-        </main>
 
-        <footer class="mt-auto py-4">
-             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-300">
-                  <div class="flex flex-wrap justify-center sm:justify-start space-x-4">
-                       <a href="https://play.pokemonshowdown.com/pokedex" target="_blank" class="hover:text-white transition-colors">Pokédex</a>
-                       <a href="https://replay.pokemonshowdown.com/" target="_blank" class="hover:text-white transition-colors">Replay</a>
-                       <a href="https://pokemonshowdown.com/rules" target="_blank" class="hover:text-white transition-colors">Rules</a>
-                       <a href="https://pokemonshowdown.com/credits" target="_blank" class="hover:text-white transition-colors">Credits</a>
-                       <a href="https://github.com/smogon/pokemon-showdown" target="_blank" class="hover:text-white transition-colors">GitHub</a>
-                       <a href="https://pokemonshowdown.com/privacy" target="_blank" class="hover:text-white transition-colors">Privacy Policy</a>
-                  </div>
-             </div>
-        </footer>
-    </div>
+            <div class="lg:col-span-1 panel-bg p-4 shadow-2xl flex flex-col order-2 lg:order-3">
+                <h3 class="text-xl font-bold border-b border-gray-700 pb-2 mb-3 flex items-center">
+                    <i class="fas fa-comments text-blue-400 mr-3"></i> Lobby Chat
+                </h3>
+                <div class="chat-messages flex-grow space-y-3 overflow-y-auto pr-2 text-sm">
+                    <p class="text-gray-400">Welcome to the Lobby!</p>
+                     <div><span class="font-bold text-green-400">~System:</span> <span class="text-gray-300">User <strong class="text-yellow-400">AshKetchum</strong> joined.</span></div>
+                     <div><span class="font-bold text-purple-400">@Admin:</span> <span class="text-gray-300">Please remember to be respectful to all users.</span></div>
+                     <div><span class="font-bold text-blue-400">Misty:</span> <span class="text-gray-300">Anyone up for a water-type battle?</span></div>
+                     <div><span class="font-bold text-orange-400">Brock:</span> <span class="text-gray-300">I'm looking for a rock-solid opponent!</span></div>
+                     <div><span class="font-bold text-yellow-400">AshKetchum:</span> <span class="text-gray-300">Pikachu, I choose you! Let's battle!</span></div>
+                     <div><span class="font-bold text-pink-400">Jessie:</span> <span class="text-gray-300">Prepare for trouble!</span></div>
+                      <div><span class="font-bold text-indigo-400">James:</span> <span class="text-gray-300">And make it double!</span></div>
+                     <div><span class="font-bold text-gray-200">Meowth:</span> <span class="text-gray-300">Meowth, that's right!</span></div>
+                      <div><span class="font-bold text-green-400">~System:</span> <span class="text-gray-300">User <strong class="text-blue-400">Misty</strong> started a battle with <strong class="text-yellow-400">AshKetchum</strong>.</span></div>
+                </div>
+                <div class="mt-4 flex space-x-2">
+                    <input type="text" placeholder="Fale no chat..." class="flex-grow bg-gray-900 border border-gray-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-bold transition-colors">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4">
+         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-300">
+               <div class="flex flex-wrap justify-center sm:justify-start space-x-4">
+                   <a href="https://play.pokemonshowdown.com/pokedex" target="_blank" class="hover:text-white transition-colors">Pokédex</a>
+                   <a href="https://replay.pokemonshowdown.com/" target="_blank" class="hover:text-white transition-colors">Replay</a>
+                   <a href="https://pokemonshowdown.com/rules" target="_blank" class="hover:text-white transition-colors">Rules</a>
+                   <a href="https://pokemonshowdown.com/credits" target="_blank" class="hover:text-white transition-colors">Credits</a>
+                   <a href="https://github.com/smogon/pokemon-showdown" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                   <a href="https://pokemonshowdown.com/privacy" target="_blank" class="hover:text-white transition-colors">Privacy Policy</a>
+               </div>
+         </div>
+    </footer>
 
     <div id="team-selection-modal" class="fixed inset-0 z-[100] items-center justify-center hidden">
         <div class="panel-bg p-6 rounded-lg shadow-2xl w-full max-w-2xl mx-4">
@@ -253,37 +250,19 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- NOVA LÓGICA PARA O MENU MOBILE ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const mainContent = document.getElementById('main-content');
-            const headerHeight = document.querySelector('header').offsetHeight;
-
-            mobileMenuButton.addEventListener('click', () => {
-                // Alterna a classe 'hidden' que controla a visibilidade
-                mobileMenu.classList.toggle('hidden');
-
-                if (!mobileMenu.classList.contains('hidden')) {
-                    // Menu está aberto
-                    const menuHeight = mobileMenu.offsetHeight;
-                    // Adiciona um padding-top ao main igual à altura do header + altura do menu
-                    mainContent.style.paddingTop = `${headerHeight + menuHeight - 80}px`; // Subtrai a altura inicial do header que já está no body
-                } else {
-                    // Menu está fechado
-                    // Remove o padding-top extra, voltando ao normal
-                    mainContent.style.paddingTop = '';
-                }
-            });
             
-            // Lógica para fechar o menu ao redimensionar a tela para desktop
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+           
             window.addEventListener('resize', () => {
-                if (window.innerWidth >= 768) { // 768px é o breakpoint 'md' do Tailwind
+                if (window.innerWidth >= 768) {
                     mobileMenu.classList.add('hidden');
-                    mainContent.style.paddingTop = '';
                 }
             });
 
-            // --- RESTO DO SEU SCRIPT (MODAL, LÓGICA DE BATALHA, ETC.) ---
             const formatSelect = document.getElementById('format-select');
             const battleBtn = document.getElementById('battle-btn');
             const battlePrompt = document.getElementById('battle-prompt');
@@ -314,7 +293,7 @@
                     updateTeamDisplay();
                 }
             }
-            
+           
             function updateTeamDisplay() {
                 teamDisplay.innerHTML = '';
                 const iconsToShow = selectedTeam ? selectedTeam.pokemons : Array(6).fill(null);
