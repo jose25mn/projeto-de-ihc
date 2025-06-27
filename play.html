@@ -15,6 +15,7 @@
             a.appendChild(r);
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,8 +33,12 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            /* **AJUSTE PRINCIPAL**: Adiciona espaço no topo para o header fixo */
+            /* Garante o espaço para o header fixo */
             padding-top: var(--header-height);
+        }
+        /* Classe adicionada via JS para empurrar o conteúdo quando o menu mobile abre */
+        body.mobile-menu-open {
+            /* A altura do menu será adicionada aqui via JS */
         }
         .panel-bg {
             background-color: rgba(10, 10, 20, 0.8);
@@ -72,12 +77,16 @@
             background-color: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(8px);
         }
+
+        #mobile-menu {
+            transition: height 0.3s ease-in-out;
+            overflow: hidden; /* Crucial para a transição de altura funcionar */
+        }
     </style>
 </head>
 <body class="text-white">
 
-    <div class="flex flex-col min-h-screen">
-
+    <div>
         <header class="bg-gray-900 bg-opacity-80 border-b border-gray-700/50 shadow-lg fixed top-0 left-0 right-0 z-50 backdrop-filter backdrop-blur-md">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
@@ -99,7 +108,7 @@
                     </div>
                 </div>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95 backdrop-blur-md border-t border-gray-700/50">
+            <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95 backdrop-blur-md">
                 <nav class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
                     <a href="index.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Home</a>
                     <a href="pokedex.html" class="text-gray-300 hover:bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium">Pokédex</a>
@@ -109,7 +118,7 @@
             </div>
         </header>
 
-        <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <main id="main-content" class="container mx-auto px-4 sm:px-6 lg:px-8 py-6" style="transition: padding-top 0.3s ease-in-out;">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
 
                 <div class="lg:col-span-1 space-y-5 order-2 lg:order-1">
@@ -243,15 +252,38 @@
     </div>
 
     <script>
-        // Todo o seu JavaScript permanece igual
         document.addEventListener('DOMContentLoaded', () => {
+            // --- NOVA LÓGICA PARA O MENU MOBILE ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
+            const mainContent = document.getElementById('main-content');
+            const headerHeight = document.querySelector('header').offsetHeight;
+
             mobileMenuButton.addEventListener('click', () => {
+                // Alterna a classe 'hidden' que controla a visibilidade
                 mobileMenu.classList.toggle('hidden');
+
+                if (!mobileMenu.classList.contains('hidden')) {
+                    // Menu está aberto
+                    const menuHeight = mobileMenu.offsetHeight;
+                    // Adiciona um padding-top ao main igual à altura do header + altura do menu
+                    mainContent.style.paddingTop = `${headerHeight + menuHeight - 80}px`; // Subtrai a altura inicial do header que já está no body
+                } else {
+                    // Menu está fechado
+                    // Remove o padding-top extra, voltando ao normal
+                    mainContent.style.paddingTop = '';
+                }
+            });
+            
+            // Lógica para fechar o menu ao redimensionar a tela para desktop
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) { // 768px é o breakpoint 'md' do Tailwind
+                    mobileMenu.classList.add('hidden');
+                    mainContent.style.paddingTop = '';
+                }
             });
 
-            // ... (resto do seu script original)
+            // --- RESTO DO SEU SCRIPT (MODAL, LÓGICA DE BATALHA, ETC.) ---
             const formatSelect = document.getElementById('format-select');
             const battleBtn = document.getElementById('battle-btn');
             const battlePrompt = document.getElementById('battle-prompt');
